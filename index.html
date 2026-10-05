@@ -1,9 +1,12 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#05070b">
-<title>WFESC Audio</title><style>
+<title>WFESC Audio</title>
+
+<style>
 :root{
   color-scheme:dark;
   --bg:#05070b;
@@ -106,7 +109,6 @@ button:disabled{
   background:#0a0f17;
   color:var(--text);
   font-size:20px;
-  transition:transform .28s cubic-bezier(.16,1,.3,1);
 }
 
 .icon:active{
@@ -186,17 +188,11 @@ button:disabled{
   border:1px solid var(--line);
   border-radius:24px;
   background:var(--card);
-  transition:
-    transform .3s,
-    box-shadow .3s,
-    border-color .3s;
 }
 
 .row{
   display:grid;
-  grid-template-columns:
-    minmax(0,1fr)
-    minmax(0,1fr);
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:12px;
   width:100%;
 }
@@ -225,9 +221,6 @@ button:disabled{
   background:#070b11;
   color:var(--text);
   outline:none;
-  transition:
-    border-color .2s,
-    box-shadow .2s;
 }
 
 .field input:focus,
@@ -263,27 +256,16 @@ button:disabled{
   color:#061018;
   font-weight:900;
   box-shadow:0 12px 30px #62dfff1c;
-  transition:
-    transform .25s cubic-bezier(.16,1,.3,1),
-    box-shadow .25s;
-}
-
-.primaryButton:active,
-.extractButton:active{
-  transform:scale(.985);
 }
 
 .secondaryButton{
   width:100%;
-  min-width:0;
   min-height:52px;
   padding:15px 16px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  white-space:normal;
-  line-height:1.35;
   border:1px solid var(--line);
   border-radius:15px;
   background:#0a111b;
@@ -302,17 +284,9 @@ button:disabled{
   line-height:1.7;
 }
 
-.status.success{
-  color:var(--success);
-}
-
-.status.error{
-  color:var(--danger);
-}
-
-.status.warning{
-  color:var(--warning);
-}
+.status.success{color:var(--success);}
+.status.error{color:var(--danger);}
+.status.warning{color:var(--warning);}
 
 .notice{
   margin:14px 0;
@@ -365,7 +339,6 @@ button:disabled{
   object-fit:cover;
   border:1px solid var(--line);
   border-radius:15px;
-  background:#070b11;
 }
 
 .coverPreview.show{
@@ -439,11 +412,6 @@ button:disabled{
   border-radius:50%;
   background:#0a111b;
   color:var(--text);
-  transition:transform .25s;
-}
-
-.control:active{
-  transform:scale(.9);
 }
 
 .play{
@@ -536,7 +504,6 @@ button:disabled{
   align-items:center;
   justify-content:space-between;
   gap:18px;
-  width:100%;
   min-height:54px;
 }
 
@@ -562,12 +529,10 @@ button:disabled{
   width:54px;
   height:30px;
   min-width:54px;
-  max-width:54px;
   flex:0 0 54px;
   display:block;
   direction:ltr;
   cursor:pointer;
-  overflow:hidden;
 }
 
 .switch input{
@@ -576,7 +541,6 @@ button:disabled{
   width:54px;
   height:30px;
   margin:0;
-  padding:0;
   opacity:0;
   z-index:3;
   cursor:pointer;
@@ -589,10 +553,6 @@ button:disabled{
   height:30px;
   background:#202b39;
   border-radius:99px;
-  transition:
-    background .28s,
-    box-shadow .28s;
-  pointer-events:none;
 }
 
 .slider:before{
@@ -604,9 +564,7 @@ button:disabled{
   left:4px;
   border-radius:50%;
   background:#dfe7f1;
-  transition:
-    transform .28s cubic-bezier(.16,1,.3,1),
-    background .28s;
+  transition:transform .28s cubic-bezier(.16,1,.3,1);
 }
 
 .switch input:checked+.slider{
@@ -616,12 +574,10 @@ button:disabled{
       var(--accent),
       var(--accent2)
     );
-  box-shadow:0 0 20px #6de7ff33;
 }
 
 .switch input:checked+.slider:before{
   transform:translateX(24px);
-  background:white;
 }
 
 .nav{
@@ -647,22 +603,10 @@ button:disabled{
   min-width:0;
   min-height:46px;
   padding:10px 6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  white-space:nowrap;
   border:0;
   border-radius:14px;
   background:transparent;
   color:var(--muted);
-  transition:
-    background .25s,
-    color .25s,
-    transform .2s;
-}
-
-.nav button:active{
-  transform:scale(.95);
 }
 
 .nav button.active{
@@ -699,20 +643,9 @@ button:disabled{
   background:#ffffffea;
 }
 
-.light #wfesc-engine-boot{
-  background:
-    radial-gradient(
-      circle at center,
-      #e9f9ff 0,
-      #edf2f7 48%,
-      #dfe7ef 100%
-    );
-}
-
-
-/* =========================================================
+/* =========================
    WFESC ENGINE
-========================================================= */
+========================= */
 
 #wfesc-engine-boot{
   position:fixed;
@@ -730,9 +663,9 @@ button:disabled{
       #020306 100%
     );
   transition:
-    opacity .8s cubic-bezier(.16,1,.3,1),
+    opacity .8s,
     visibility .8s,
-    transform .8s cubic-bezier(.16,1,.3,1);
+    transform .8s;
 }
 
 #wfesc-engine-boot.hidden{
@@ -759,10 +692,7 @@ button:disabled{
     linear-gradient(#8beaff12 1px,transparent 1px),
     linear-gradient(90deg,#8beaff12 1px,transparent 1px);
   background-size:48px 48px;
-  transform:
-    perspective(500px)
-    rotateX(62deg)
-    translateY(30%);
+  transform:perspective(500px) rotateX(62deg) translateY(30%);
   animation:wfescGrid 2.4s linear infinite;
 }
 
@@ -782,7 +712,6 @@ button:disabled{
   height:340px;
   display:grid;
   place-items:center;
-  filter:drop-shadow(0 0 20px #6de7ff12);
 }
 
 .energyField,
@@ -831,7 +760,6 @@ button:disabled{
   border-radius:50%;
   background:var(--accent);
   box-shadow:0 0 20px var(--accent);
-  animation:wfescOrbitDot 2s ease-in-out infinite;
 }
 
 .gear{
@@ -871,7 +799,6 @@ button:disabled{
   inset:7px;
   border:1px solid #72eaff88;
   border-radius:50%;
-  animation:wfescShellPulse 1.8s ease-in-out infinite;
 }
 
 .core{
@@ -914,18 +841,12 @@ button:disabled{
   text-align:center;
   direction:ltr;
   unicode-bidi:isolate;
-  white-space:nowrap;
 }
 
 .powered,
 .wfesc,
 .engineLabel,
 .systemStatus{
-  direction:ltr;
-  unicode-bidi:isolate;
-}
-
-.wfesc span{
   direction:ltr;
   unicode-bidi:isolate;
 }
@@ -943,16 +864,6 @@ button:disabled{
   font-weight:950;
   letter-spacing:8px;
 }
-
-.wfesc span{
-  display:inline-block;
-  animation:wfescLetter 1.5s ease-in-out infinite;
-}
-
-.wfesc span:nth-child(2){animation-delay:.08s}
-.wfesc span:nth-child(3){animation-delay:.16s}
-.wfesc span:nth-child(4){animation-delay:.24s}
-.wfesc span:nth-child(5){animation-delay:.32s}
 
 .bootProgress{
   position:absolute;
@@ -987,27 +898,6 @@ button:disabled{
   letter-spacing:1px;
 }
 
-.finalFlash{
-  position:absolute;
-  inset:0;
-  background:#dffaff;
-  opacity:0;
-  animation:wfescFlash 4.2s linear forwards;
-  pointer-events:none;
-}
-
-.dataLine{
-  position:absolute;
-  width:80px;
-  height:1px;
-  background:#70eaff55;
-  animation:wfescLine 1.8s ease-in-out infinite;
-}
-
-.line1{left:14%;top:35%}
-.line2{right:12%;top:55%;animation-delay:.4s}
-.line3{left:18%;bottom:27%;animation-delay:.8s}
-
 .particle{
   position:absolute;
   background:#7ceaff;
@@ -1039,62 +929,20 @@ button:disabled{
   to{transform:rotate(-360deg)}
 }
 
-@keyframes wfescOrbitDot{
-  0%,100%{transform:scale(.75);opacity:.5}
-  50%{transform:scale(1.3);opacity:1}
-}
-
 @keyframes wfescReactorPulse{
-  0%,100%{
-    transform:scale(.96);
-    box-shadow:
-      0 0 45px #62e8ff33,
-      inset 0 0 35px #62e8ff18;
-  }
-  50%{
-    transform:scale(1.04);
-    box-shadow:
-      0 0 70px #62e8ff66,
-      inset 0 0 45px #62e8ff26;
-  }
-}
-
-@keyframes wfescShellPulse{
-  0%,100%{transform:scale(.98);opacity:.7}
-  50%{transform:scale(1.03);opacity:1}
+  0%,100%{transform:scale(.96)}
+  50%{transform:scale(1.04)}
 }
 
 @keyframes wfescCorePulse{
-  0%,100%{
-    transform:scale(.92);
-    box-shadow:0 0 26px #5ce8ff55;
-  }
-  50%{
-    transform:scale(1.08);
-    box-shadow:0 0 46px #5ce8ffbb;
-  }
+  0%,100%{transform:scale(.92)}
+  50%{transform:scale(1.08)}
 }
 
 @keyframes wfescScan{
   0%{transform:translateY(-66px);opacity:0}
-  20%{opacity:1}
   50%{transform:translateY(66px);opacity:1}
-  80%{opacity:1}
   100%{transform:translateY(-66px);opacity:0}
-}
-
-@keyframes wfescLetter{
-  0%,100%{transform:translateY(0);opacity:.72}
-  50%{
-    transform:translateY(-5px);
-    opacity:1;
-    text-shadow:0 0 16px #6de7ff66;
-  }
-}
-
-@keyframes wfescLine{
-  0%,100%{transform:scaleX(.55);opacity:.35}
-  50%{transform:scaleX(1.4);opacity:1}
 }
 
 @keyframes wfescRise{
@@ -1109,1638 +957,631 @@ button:disabled{
   }
 }
 
-@keyframes wfescFlash{
-  0%,85%{opacity:0}
-  92%{opacity:.22}
-  96%{opacity:.75}
-  100%{opacity:0}
-}
-
-body.wfesc-enhanced .page{
-  animation:enhancedPage .55s cubic-bezier(.16,1,.3,1);
-}
-
-body.wfesc-enhanced .card,
-body.wfesc-enhanced .hero,
-body.wfesc-enhanced .playerBox{
-  will-change:transform,box-shadow;
-  transition:
-    transform .38s cubic-bezier(.16,1,.3,1),
-    box-shadow .38s cubic-bezier(.16,1,.3,1),
-    border-color .38s;
-}
-
-body.wfesc-enhanced .card{
-  animation:
-    enhancedFloat
-    4.5s
-    ease-in-out
-    infinite
-    alternate;
-  border-color:#26384c;
-}
-
-body.wfesc-enhanced .hero{
-  animation:
-    enhancedHero
-    5s
-    ease-in-out
-    infinite
-    alternate;
-}
-
-body.wfesc-enhanced .card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 25px 65px #0009;
-  border-color:#38536c;
-}
-
-body.wfesc-enhanced button{
-  transition:
-    transform .28s cubic-bezier(.16,1,.3,1),
-    box-shadow .28s,
-    background .28s,
-    border-color .28s;
-}
-
-body.wfesc-enhanced button:active{
-  transform:scale(.97);
-}
-
-body.wfesc-enhanced .primaryButton,
-body.wfesc-enhanced .extractButton{
-  animation:enhancedPulse 2.6s ease-in-out infinite;
-}
-
-body.wfesc-enhanced .nav{
-  animation:
-    enhancedNav
-    3.5s
-    ease-in-out
-    infinite
-    alternate;
-}
-
-body.wfesc-enhanced .switch .slider{
-  animation:
-    enhancedSwitchGlow
-    2s
-    ease-in-out
-    infinite
-    alternate;
-}
-
-@keyframes enhancedPage{
-  from{
-    opacity:0;
-    transform:translateY(15px) scale(.985);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-@keyframes enhancedFloat{
-  from{box-shadow:0 20px 60px #0007}
-  to{box-shadow:0 25px 70px #0009}
-}
-
-@keyframes enhancedHero{
-  from{transform:translateY(0)}
-  to{transform:translateY(-2px)}
-}
-
-@keyframes enhancedPulse{
-  0%,100%{box-shadow:0 12px 30px #62dfff1c}
-  50%{box-shadow:0 15px 42px #6de7ff35}
-}
-
-@keyframes enhancedNav{
-  from{box-shadow:0 15px 45px #0007}
-  to{box-shadow:0 18px 55px #000a}
-}
-
-@keyframes enhancedSwitchGlow{
-  from{filter:brightness(1)}
-  to{filter:brightness(1.12)}
-}
-
-@media (prefers-reduced-motion:reduce){
-  *,
-  *::before,
-  *::after{
-    scroll-behavior:auto!important;
-    animation-duration:.001ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.001ms!important;
-  }
-}
-
 @media(max-width:520px){
   .engineCore{transform:scale(.78)}
   .systemStatus{font-size:7px}
-  .wfesc{font-size:23px}
   .hero h1{font-size:29px}
   .row{grid-template-columns:1fr}
   .fileItem{align-items:flex-start}
   .fileActions{flex-direction:column}
   .fileOpen{width:64px}
-  .playerCover{
-    width:160px;
-    height:160px;
-  }
 }
-</style></head><body><div id="wfesc-engine-boot"></div><main class="app"><header class="top"><div class="brand">
-WFESC AUDIO
-<small>MEDIA EXTRACTION ENGINE</small>
-</div><button
-class="icon"
-id="themeButton"
-aria-label="تغيير المظهر">
-☾
-</button>
+</style>
+</head>
 
-</header><section id="homePage" class="page active"><section class="hero"><div class="eyebrow">
-AUDIO EXTRACTOR
-</div><h1>
-حوّل الفيديو إلى ملف صوتي.
-</h1><p>
-اختر فيديو من الاستوديو، ثم حدد الصيغة والجودة واسم الملف وصورة الغلاف.
-</p><button
-class="primaryButton"
-id="chooseVideoButton">
-اختيار فيديو
-</button>
+<body>
 
-<input
-id="videoInput"
-type="file"
-accept="video/*,.mkv,.mov,.avi,.webm,.mp4,.m4v"
-hidden>
+<div id="wfesc-engine-boot"></div>
 
-</section><section
-  id="extractionCard"
-  class="card hidden"><div
-  id="selectedVideoName"
-  class="status">
-لم يتم اختيار فيديو
-</div><div class="row"><div class="field"><label>الصيغة</label>
+<main class="app">
 
-<select id="formatSelect"><option value="mp3">MP3</option>
-<option value="m4a">M4A / AAC</option>
-<option value="aac">AAC</option>
-<option value="wav">WAV</option></select></div><div class="field"><label>Bitrate</label>
+<header class="top">
+  <div class="brand">
+    WFESC AUDIO
+    <small>MEDIA EXTRACTION ENGINE</small>
+  </div>
 
-<select id="bitrateSelect"><option value="64000">64 kbps</option>
-<option value="96000">96 kbps</option>
-<option value="128000">128 kbps</option>
-<option value="192000" selected>192 kbps</option>
-<option value="256000">256 kbps</option>
-<option value="320000">320 kbps</option></select></div></div><div class="field"><label>اسم الملف</label>
+  <button
+    class="icon"
+    id="themeButton"
+    aria-label="تغيير المظهر"
+  >☾</button>
+</header>
 
-<input
-id="fileNameInput"
-value="WFESC Audio"
-maxlength="120">
+<section id="homePage" class="page active">
 
-</div><div class="field"><label>صورة الغلاف</label>
+  <section class="hero">
 
-<input
-id="coverInput"
-type="file"
-accept="image/*">
+    <div class="eyebrow">AUDIO EXTRACTOR</div>
 
-<img
-id="coverPreview"
-class="coverPreview"
-alt="معاينة الغلاف">
+    <h1>حوّل الفيديو إلى ملف صوتي.</h1>
 
-</div><div
-  id="formatNotice"
-  class="notice">
-سيتم إنشاء الملف بترميز حقيقي حسب الصيغة المختارة.
-</div><div
-  id="progressBox"
-  class="progressBox hidden"><div class="progressTrack"><div
-  id="progressBar"
-  class="progressBar">
-</div></div><div
-  id="progressText"
-  class="progressText">
-0%
-</div></div><button
-class="extractButton"
-id="extractButton">
-بدء استخراج الصوت
-</button>
+    <p>
+      اختر فيديو من الاستوديو، ثم حدد الصيغة والجودة واسم الملف وصورة الغلاف.
+    </p>
 
-<div
-  id="statusText"
-  class="status">
-جاهز
-</div></section></section><section id="playerPage" class="page"><div class="playerBox"><img
-id="resultCover"
-class="playerCover"
-alt="Cover">
+    <button
+      class="primaryButton"
+      id="chooseVideoButton"
+    >
+      اختيار فيديو
+    </button>
 
-<div
-  id="resultName"
-  class="playerTitle">
-WFESC Audio
-</div><div
-  id="playerMeta"
-  class="playerMeta">
-—
-</div><div class="playerTime"><span id="currentTime">0:00</span>
-<span id="duration">0:00</span>
+    <input
+      id="videoInput"
+      type="file"
+      accept="video/*,.mkv,.mov,.avi,.webm,.mp4,.m4v"
+      hidden
+    >
 
-</div><input
-id="seekBar"
-class="seek"
-type="range"
-min="0"
-max="100"
-value="0">
+  </section>
 
-<div class="controls"><button id="backButton" class="control">-10</button>
+  <section
+    id="extractionCard"
+    class="card hidden"
+  >
 
-<button id="playButton" class="play">▶</button>
+    <div id="selectedVideoName" class="status">
+      لم يتم اختيار فيديو
+    </div>
 
-<button id="forwardButton" class="control">+10</button>
+    <div class="row">
 
-</div><audio
-id="audioPlayer"
-preload="metadata">
-</audio>
+      <div class="field">
+        <label>الصيغة</label>
+        <select id="formatSelect">
+          <option value="mp3">MP3</option>
+          <option value="m4a">M4A / AAC</option>
+          <option value="aac">AAC</option>
+          <option value="wav">WAV</option>
+        </select>
+      </div>
 
-<div class="row"><button
-id="downloadButton"
-class="primaryButton">
-حفظ
-</button>
+      <div class="field">
+        <label>Bitrate</label>
+        <select id="bitrateSelect">
+          <option value="64000">64 kbps</option>
+          <option value="96000">96 kbps</option>
+          <option value="128000">128 kbps</option>
+          <option value="192000" selected>192 kbps</option>
+          <option value="256000">256 kbps</option>
+          <option value="320000">320 kbps</option>
+        </select>
+      </div>
 
-<button
-id="shareButton"
-class="secondaryButton">
-مشاركة
-</button>
+    </div>
 
-</div><div
-  id="playerStatus"
-  class="status">
-</div></div></section><section id="filesPage" class="page"><div class="card"><div class="eyebrow">
-MY AUDIO
-</div><h2>الملفات المستخرجة</h2><button
-id="clearFilesButton"
-class="secondaryButton">
-حذف كل الملفات
-</button>
+    <div class="field">
+      <label>اسم الملف</label>
+      <input
+        id="fileNameInput"
+        value="WFESC Audio"
+        maxlength="120"
+      >
+    </div>
 
-<div id="filesList"></div></div></section><section id="settingsPage" class="page"><div class="card"><div class="eyebrow">
-SETTINGS
-</div><h2>الإعدادات</h2><div class="field"><label>المظهر</label>
+    <div class="field">
+      <label>صورة الغلاف</label>
 
-<select id="themeSelect"><option value="dark">داكن</option>
-<option value="light">فاتح</option></select></div><div class="field"><label>الامتداد الافتراضي</label>
+      <input
+        id="coverInput"
+        type="file"
+        accept="image/*"
+      >
 
-<select id="defaultFormat"><option value="mp3">MP3</option>
-<option value="m4a">M4A / AAC</option>
-<option value="aac">AAC</option>
-<option value="wav">WAV</option></select></div><div class="field"><label>Bitrate الافتراضي</label>
+      <img
+        id="coverPreview"
+        class="coverPreview"
+        alt="معاينة الغلاف"
+      >
+    </div>
 
-<select id="defaultBitrate"><option value="64000">64 kbps</option>
-<option value="96000">96 kbps</option>
-<option value="128000">128 kbps</option>
-<option value="192000">192 kbps</option>
-<option value="256000">256 kbps</option>
-<option value="320000">320 kbps</option></select></div><div class="settingsGroup"><div class="settingRow"><div class="settingText"><div class="settingTitle">
-الأنميشن المعزز
-</div><div class="settingDesc">
-حركات وانتقالات أكثر سلاسة لواجهة الهاتف. لا يغيّر معدل تحديث الشاشة نفسه.
-</div></div><label class="switch"><input
-type="checkbox"
-id="enhancedToggle">
+    <div id="formatNotice" class="notice">
+      سيتم إنشاء الملف بترميز حقيقي بواسطة FFmpeg.
+    </div>
 
-<span class="slider"></span>
+    <div id="progressBox" class="progressBox hidden">
 
-</label></div></div><div class="settingsGroup"><div class="settingRow"><div class="settingText"><div class="settingTitle">
-تشغيل تلقائي بعد الاستخراج
-</div><div class="settingDesc">
-يفتح مشغل الملف مباشرة بعد اكتمال التصدير.
-</div></div><label class="switch"><input
-type="checkbox"
-id="autoOpenToggle">
+      <div class="progressTrack">
+        <div
+          id="progressBar"
+          class="progressBar"
+        ></div>
+      </div>
 
-<span class="slider"></span>
+      <div
+        id="progressText"
+        class="progressText"
+      >
+        0%
+      </div>
 
-</label></div></div><button
-id="saveSettings"
-class="primaryButton"
-style="margin-top:20px">
-حفظ الإعدادات
-</button>
+    </div>
 
-<div
-  id="settingsStatus"
-  class="status">
-</div></div></section><nav class="nav"><button class="active" data-page="homePage">الرئيسية</button>
-<button data-page="filesPage">الملفات</button>
-<button data-page="settingsPage">الإعدادات</button>
+    <button
+      class="extractButton"
+      id="extractButton"
+    >
+      بدء استخراج الصوت
+    </button>
 
-</nav></main><script>
+    <div id="statusText" class="status">
+      جاهز
+    </div>
+
+  </section>
+
+</section>
+
+<section id="playerPage" class="page">
+
+  <div class="playerBox">
+
+    <img
+      id="resultCover"
+      class="playerCover"
+      alt="Cover"
+    >
+
+    <div
+      id="resultName"
+      class="playerTitle"
+    >
+      WFESC Audio
+    </div>
+
+    <div
+      id="playerMeta"
+      class="playerMeta"
+    >
+      —
+    </div>
+
+    <div class="playerTime">
+      <span id="currentTime">0:00</span>
+      <span id="duration">0:00</span>
+    </div>
+
+    <input
+      id="seekBar"
+      class="seek"
+      type="range"
+      min="0"
+      max="100"
+      value="0"
+    >
+
+    <div class="controls">
+
+      <button
+        id="backButton"
+        class="control"
+      >
+        -10
+      </button>
+
+      <button
+        id="playButton"
+        class="play"
+      >
+        ▶
+      </button>
+
+      <button
+        id="forwardButton"
+        class="control"
+      >
+        +10
+      </button>
+
+    </div>
+
+    <audio
+      id="audioPlayer"
+      preload="metadata"
+    ></audio>
+
+    <div class="row">
+
+      <button
+        id="downloadButton"
+        class="primaryButton"
+      >
+        حفظ
+      </button>
+
+      <button
+        id="shareButton"
+        class="secondaryButton"
+      >
+        مشاركة
+      </button>
+
+    </div>
+
+    <div
+      id="playerStatus"
+      class="status"
+    ></div>
+
+  </div>
+
+</section>
+
+<section id="filesPage" class="page">
+
+  <div class="card">
+
+    <div class="eyebrow">MY AUDIO</div>
+
+    <h2>الملفات المستخرجة</h2>
+
+    <button
+      id="clearFilesButton"
+      class="secondaryButton"
+    >
+      حذف كل الملفات
+    </button>
+
+    <div id="filesList"></div>
+
+  </div>
+
+</section>
+
+<section id="settingsPage" class="page">
+
+  <div class="card">
+
+    <div class="eyebrow">SETTINGS</div>
+
+    <h2>الإعدادات</h2>
+
+    <div class="field">
+      <label>المظهر</label>
+
+      <select id="themeSelect">
+        <option value="dark">داكن</option>
+        <option value="light">فاتح</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>الامتداد الافتراضي</label>
+
+      <select id="defaultFormat">
+        <option value="mp3">MP3</option>
+        <option value="m4a">M4A / AAC</option>
+        <option value="aac">AAC</option>
+        <option value="wav">WAV</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Bitrate الافتراضي</label>
+
+      <select id="defaultBitrate">
+        <option value="64000">64 kbps</option>
+        <option value="96000">96 kbps</option>
+        <option value="128000">128 kbps</option>
+        <option value="192000">192 kbps</option>
+        <option value="256000">256 kbps</option>
+        <option value="320000">320 kbps</option>
+      </select>
+    </div>
+
+    <div class="settingsGroup">
+
+      <div class="settingRow">
+
+        <div class="settingText">
+
+          <div class="settingTitle">
+            الأنميشن المعزز
+          </div>
+
+          <div class="settingDesc">
+            حركات وانتقالات أكثر سلاسة لواجهة الهاتف.
+          </div>
+
+        </div>
+
+        <label class="switch">
+
+          <input
+            type="checkbox"
+            id="enhancedToggle"
+          >
+
+          <span class="slider"></span>
+
+        </label>
+
+      </div>
+
+    </div>
+
+    <div class="settingsGroup">
+
+      <div class="settingRow">
+
+        <div class="settingText">
+
+          <div class="settingTitle">
+            تشغيل تلقائي بعد الاستخراج
+          </div>
+
+          <div class="settingDesc">
+            يفتح مشغل الملف مباشرة بعد اكتمال التصدير.
+          </div>
+
+        </div>
+
+        <label class="switch">
+
+          <input
+            type="checkbox"
+            id="autoOpenToggle"
+          >
+
+          <span class="slider"></span>
+
+        </label>
+
+      </div>
+
+    </div>
+
+    <button
+      id="saveSettings"
+      class="primaryButton"
+      style="margin-top:20px"
+    >
+      حفظ الإعدادات
+    </button>
+
+    <div
+      id="settingsStatus"
+      class="status"
+    ></div>
+
+  </div>
+
+</section>
+
+<nav class="nav">
+
+  <button
+    class="active"
+    data-page="homePage"
+  >
+    الرئيسية
+  </button>
+
+  <button data-page="filesPage">
+    الملفات
+  </button>
+
+  <button data-page="settingsPage">
+    الإعدادات
+  </button>
+
+</nav>
+
+</main>
+
+<script>
 "use strict";
 
 /* =========================================================
-   WFESC ENGINE
+   WFESC AUDIO
+   OFFICIAL FFMPEG 0.12.15 WRAPPER
+   LOCAL CORE 0.12.10
 ========================================================= */
 
-window.WFESC_ENGINE={
-  name:"WFESC ENGINE",
-  version:"3.0.0",
-  status:"ONLINE",
+const $ = (id) => document.getElementById(id);
 
-  init(){
-    console.log("[WFESC ENGINE] ONLINE");
-  }
-};
+const DB_NAME = "WFESC_AUDIO_DATABASE";
+const DB_VERSION = 6;
+const STORE_NAME = "files";
 
-const ENGINE_SESSION_KEY="WFESC_ENGINE_ALWAYS_SHOW";
+const FFMPEG_CORE_JS = new URL(
+  "./ffmpeg/ffmpeg-core.js",
+  document.baseURI
+).href;
 
+const FFMPEG_CORE_WASM = new URL(
+  "./ffmpeg/ffmpeg-core.wasm",
+  document.baseURI
+).href;
+
+const FFMPEG_CLASS_WORKER = new URL(
+  "./ffmpeg/worker.js",
+  document.baseURI
+).href;
+
+const FFMPEG_WRAPPER_URL =
+  "https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.15/dist/esm/index.js";
+
+let ffmpeg = null;
+let ffmpegLoading = null;
+
+let selectedVideo = null;
+let selectedCover = null;
+let selectedCoverData = "";
+
+let resultBlob = null;
+let resultURL = "";
+let resultFileName = "";
+
+let autoOpen = true;
+let databasePromise = null;
+
+let lastFFmpegLog = "";
+let currentObjectURLs = new Set();
+
+/* =========================================================
+   ENGINE
+========================================================= */
 
 function createBoot(){
 
-  const boot=
-    document.getElementById(
-      "wfesc-engine-boot"
-    );
+  const boot = $("wfesc-engine-boot");
 
   if(!boot) return;
 
-  boot.innerHTML=`
+  boot.innerHTML = `
+    <div class="bootHalo"></div>
+    <div class="engineGlow"></div>
+    <div class="bootGrid"></div>
+    <div id="particles"></div>
 
-<div class="bootHalo"></div>
-<div class="engineGlow"></div>
-<div class="bootGrid"></div>
-<div id="particles"></div>
+    <div class="engineCore">
 
-<div class="engineCore">
+      <div class="energyField"></div>
+      <div class="gear"></div>
+      <div class="techRing"></div>
+      <div class="radar"></div>
+      <div class="orbit"></div>
+      <div class="gear2"></div>
 
-<div class="energyField"></div>
-<div class="gear"></div>
-<div class="techRing"></div>
-<div class="radar"></div>
-<div class="orbit"></div>
-<div class="gear2"></div>
+      <div class="reactor">
+        <div class="reactorShell"></div>
 
-<div class="reactor">
+        <div class="core">
+          <span class="coreText">WFESC</span>
+        </div>
+      </div>
 
-<div class="reactorShell"></div>
+      <div class="scanner"></div>
 
-<div class="core">
-<span class="coreText">WFESC</span>
-</div>
+    </div>
 
-</div>
+    <div class="bootBrand">
 
-<div class="scanner"></div>
+      <div class="powered">POWERED BY</div>
 
-</div>
+      <div class="wfesc">
+        WFESC
+      </div>
 
-<div class="dataLine line1"></div>
-<div class="dataLine line2"></div>
-<div class="dataLine line3"></div>
+      <div class="engineLabel">
+        ENGINE
+      </div>
 
-<div class="bootBrand">
+    </div>
 
-<div class="powered">POWERED BY</div>
+    <div class="bootProgress">
+      <div
+        id="bootProgressBar"
+        class="bootProgressBar"
+      ></div>
+    </div>
 
-<div class="wfesc">
-<span>W</span>
-<span>F</span>
-<span>E</span>
-<span>S</span>
-<span>C</span>
-</div>
+    <div class="systemStatus">
+      <span>WFESC ENGINE CORE</span>
+      <span id="bootStatus">SYSTEM INITIALIZING</span>
+      <span>BUILD 4.0.0</span>
+    </div>
+  `;
 
-<div class="engineLabel">ENGINE</div>
+  const particles = boot.querySelector("#particles");
 
-</div>
+  for(let i = 0; i < 70; i++){
 
-<div class="bootProgress">
+    const p = document.createElement("div");
 
-<div
-  id="bootProgressBar"
-  class="bootProgressBar">
-</div>
+    p.className = "particle";
 
-</div>
+    p.style.left =
+      Math.random() * 100 + "%";
 
-<div class="systemStatus">
+    p.style.top =
+      45 + Math.random() * 60 + "%";
 
-<span>WFESC ENGINE CORE</span>
+    p.style.animationDuration =
+      2.2 + Math.random() * 4.8 + "s";
 
-<span id="bootStatus">
-SYSTEM INITIALIZING
-</span>
+    p.style.animationDelay =
+      Math.random() * 3.5 + "s";
 
-<span>BUILD 3.0.0</span>
+    const size =
+      .6 + Math.random() * 1.8;
 
-</div>
-
-<div class="finalFlash"></div>
-`;
-
-  const particles=
-    boot.querySelector("#particles");
-
-  for(let i=0;i<70;i++){
-
-    const p=
-      document.createElement("div");
-
-    p.className="particle";
-
-    p.style.left=
-      Math.random()*100+"%";
-
-    p.style.top=
-      45+
-      Math.random()*60+
-      "%";
-
-    p.style.animationDuration=
-      2.2+
-      Math.random()*4.8+
-      "s";
-
-    p.style.animationDelay=
-      Math.random()*3.5+
-      "s";
-
-    const size=
-      .6+
-      Math.random()*1.8;
-
-    p.style.width=size+"px";
-    p.style.height=size+"px";
+    p.style.width = size + "px";
+    p.style.height = size + "px";
 
     particles.appendChild(p);
   }
 
-  window.WFESC_ENGINE.init();
-
-  const started=performance.now();
-  const total=3800;
+  const started = performance.now();
+  const total = 3800;
 
   function tick(now){
 
-    const progress=
+    const progress =
       Math.min(
         1,
-        (now-started)/total
+        (now - started) / total
       );
 
-    const percent=
-      Math.round(progress*100);
+    const percent =
+      Math.round(progress * 100);
 
-    const bar=
-      document.getElementById(
-        "bootProgressBar"
-      );
+    const bar =
+      $("bootProgressBar");
 
     if(bar){
-      bar.style.width=
-        percent+"%";
+      bar.style.width =
+        percent + "%";
     }
 
-    const status=
-      document.getElementById(
-        "bootStatus"
-      );
+    const status =
+      $("bootStatus");
 
     if(status){
 
-      status.textContent=
-        percent<30
-        ? "SYSTEM INITIALIZING"
-        : percent<70
-        ? "CORE CALIBRATING"
-        : "SYSTEM ONLINE";
+      status.textContent =
+        percent < 30
+          ? "SYSTEM INITIALIZING"
+          : percent < 70
+            ? "CORE CALIBRATING"
+            : "SYSTEM ONLINE";
     }
 
-    if(progress<1){
+    if(progress < 1){
       requestAnimationFrame(tick);
     }
   }
 
   requestAnimationFrame(tick);
 
-  setTimeout(()=>{
+  setTimeout(() => {
 
     boot.classList.add("hidden");
 
-    setTimeout(()=>{
+    setTimeout(() => {
+      boot.remove();
+    }, 900);
 
-      if(boot.parentNode){
-        boot.remove();
-      }
-
-    },900);
-
-  },4200);
+  }, 4200);
 }
 
-
-/*
-  IMPORTANT:
-  The engine now runs whenever the page is opened.
-  We intentionally do NOT use sessionStorage to skip it.
-*/
-function startEngine(){
-
-  if(
-    document.readyState==="loading"
-  ){
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      createBoot,
-      {once:true}
-    );
-
-  }else{
-
-    createBoot();
-
-  }
-}
-
-startEngine();
-
-
-/* =========================================================
-   GLOBALS
-========================================================= */
-
-const $=id=>
-  document.getElementById(id);
-
-const DB_NAME=
-  "WFESC_AUDIO_DATABASE";
-
-const DB_VERSION=5;
-
-const STORE_NAME="files";
-
-let ffmpeg=null;
-let ffmpegLoaded=false;
-let ffmpegLoading=null;
-
-let selectedVideo=null;
-let selectedCover=null;
-let selectedCoverData="";
-
-let resultBlob=null;
-let resultURL="";
-let resultFileName="";
-let resultExtension="";
-
-let autoOpen=true;
-
-let databasePromise=null;
-
-let lastFFmpegLog="";
-let ffmpegProgressSeen=false;
-
-
-/* =========================================================
-   LOCAL FFmpeg CONFIGURATION
-========================================================= */
-
-const FFMPEG_LOCAL_PATH="./ffmpeg/";
-
-const FFMPEG_CORE_URL=
-  FFMPEG_LOCAL_PATH+
-  "ffmpeg-core.js";
-
-const FFMPEG_WASM_URL=
-  FFMPEG_LOCAL_PATH+
-  "ffmpeg-core.wasm";
-
-const FFMPEG_WORKER_URL=
-  FFMPEG_LOCAL_PATH+
-  "worker.js";
-
-
-/*
-  We intentionally do NOT import:
-
-  https://cdn.jsdelivr.net/...
-
-  The core, wasm and worker are local.
-*/
-
-
-/* =========================================================
-   LOCAL FILE CHECK
-========================================================= */
-
-async function checkLocalFFmpegFiles(){
-
-  const files=[
-    {
-      name:"ffmpeg-core.js",
-      url:FFMPEG_CORE_URL
-    },
-    {
-      name:"ffmpeg-core.wasm",
-      url:FFMPEG_WASM_URL
-    },
-    {
-      name:"worker.js",
-      url:FFMPEG_WORKER_URL
-    }
-  ];
-
-  for(const file of files){
-
-    const response=
-      await fetch(
-        file.url,
-        {
-          cache:"no-store"
-        }
-      );
-
-    if(!response.ok){
-
-      throw new Error(
-        "ملف "+
-        file.name+
-        " غير موجود. HTTP "+
-        response.status
-      );
-
-    }
-
-    if(
-      file.name===
-      "ffmpeg-core.js"
-    ){
-
-      const text=
-        await response.clone().text();
-
-      if(
-        text.trim().length<
-        1000
-      ){
-
-        throw new Error(
-          "ملف ffmpeg-core.js فارغ أو غير مكتمل."
-        );
-
-      }
-    }
-
-    if(
-      file.name===
-      "ffmpeg-core.wasm"
-    ){
-
-      const length=
-        Number(
-          response.headers.get(
-            "content-length"
-          )
-        );
-
-      /*
-        The real FFmpeg WASM is tens of MB.
-        This prevents accidentally accepting
-        an empty placeholder.
-      */
-
-      if(
-        Number.isFinite(length)&&
-        length<
-        1000000
-      ){
-
-        throw new Error(
-          "ملف ffmpeg-core.wasm يبدو فارغًا أو غير مكتمل."
-        );
-
-      }
-    }
-  }
-
-  return true;
-}
-
-
-/* =========================================================
-   FFMPEG WORKER BRIDGE
-========================================================= */
-
-/*
-  This bridge communicates directly with the official
-  local FFmpeg worker.
-
-  It means the page itself does not need the online
-  @ffmpeg/ffmpeg package.
-*/
-
-const FFMessageType={
-  LOAD:"LOAD",
-  EXEC:"EXEC",
-  FFPROBE:"FFPROBE",
-  WRITE_FILE:"WRITE_FILE",
-  READ_FILE:"READ_FILE",
-  DELETE_FILE:"DELETE_FILE",
-  RENAME:"RENAME",
-  CREATE_DIR:"CREATE_DIR",
-  LIST_DIR:"LIST_DIR",
-  DELETE_DIR:"DELETE_DIR",
-  MOUNT:"MOUNT",
-  UNMOUNT:"UNMOUNT",
-  LOG:"LOG",
-  PROGRESS:"PROGRESS",
-  ERROR:"ERROR"
-};
-
-
-class LocalFFmpeg{
-
-  constructor(){
-
-    this.worker=null;
-    this.loaded=false;
-    this.nextId=1;
-
-    this.resolves=new Map();
-    this.rejects=new Map();
-
-    this.logCallbacks=[];
-    this.progressCallbacks=[];
-
-  }
-
-
-  on(event,callback){
-
-    if(event==="log"){
-
-      this.logCallbacks.push(
-        callback
-      );
-
-    }
-
-    if(event==="progress"){
-
-      this.progressCallbacks.push(
-        callback
-      );
-
-    }
-
-  }
-
-
-  off(event,callback){
-
-    if(event==="log"){
-
-      this.logCallbacks=
-        this.logCallbacks.filter(
-          fn=>fn!==callback
-        );
-
-    }
-
-    if(event==="progress"){
-
-      this.progressCallbacks=
-        this.progressCallbacks.filter(
-          fn=>fn!==callback
-        );
-
-    }
-
-  }
-
-
-  createWorker(){
-
-    if(this.worker){
-      return;
-    }
-
-    /*
-      Same-origin worker.
-    */
-
-    this.worker=
-      new Worker(
-        new URL(
-          FFMPEG_WORKER_URL,
-          document.baseURI
-        ),
-        {
-          type:"module"
-        }
-      );
-
-
-    this.worker.onmessage=
-      event=>{
-
-        const data=
-          event.data||{};
-
-        const id=
-          data.id;
-
-        const type=
-          data.type;
-
-        if(
-          type===FFMessageType.LOG
-        ){
-
-          this.logCallbacks
-            .forEach(
-              callback=>{
-                try{
-                  callback(
-                    data.data
-                  );
-                }catch(_){}
-              }
-            );
-
-          return;
-        }
-
-
-        if(
-          type===FFMessageType.PROGRESS
-        ){
-
-          this.progressCallbacks
-            .forEach(
-              callback=>{
-                try{
-                  callback(
-                    data.data
-                  );
-                }catch(_){}
-              }
-            );
-
-          return;
-        }
-
-
-        if(
-          type===FFMessageType.ERROR
-        ){
-
-          const reject=
-            this.rejects.get(id);
-
-          if(reject){
-
-            this.rejects.delete(id);
-            this.resolves.delete(id);
-
-            reject(
-              new Error(
-                String(
-                  data.data||
-                  "FFmpeg Worker error"
-                )
-              )
-            );
-          }
-
-          return;
-        }
-
-
-        const resolve=
-          this.resolves.get(id);
-
-        if(resolve){
-
-          this.resolves.delete(id);
-          this.rejects.delete(id);
-
-          resolve(
-            data.data
-          );
-
-        }
-
-      };
-
-
-    this.worker.onerror=
-      error=>{
-
-        console.error(
-          "[WFESC] FFmpeg Worker error",
-          error
-        );
-
-        for(
-          const reject
-          of this.rejects.values()
-        ){
-
-          reject(
-            new Error(
-              "FFmpeg Worker توقف بشكل غير متوقع."
-            )
-          );
-
-        }
-
-        this.resolves.clear();
-        this.rejects.clear();
-
-      };
-
-  }
-
-
-  send(
-    type,
-    data,
-    transfer=[]
-  ){
-
-    this.createWorker();
-
-    return new Promise(
-      (resolve,reject)=>{
-
-        const id=
-          this.nextId++;
-
-        this.resolves.set(
-          id,
-          resolve
-        );
-
-        this.rejects.set(
-          id,
-          reject
-        );
-
-        try{
-
-          this.worker.postMessage(
-            {
-              id,
-              type,
-              data
-            },
-            transfer
-          );
-
-        }catch(error){
-
-          this.resolves.delete(id);
-          this.rejects.delete(id);
-
-          reject(error);
-
-        }
-
-      }
-    );
-
-  }
-
-
-  async load(){
-
-    const first=
-      !this.loaded;
-
-    await this.send(
-      FFMessageType.LOAD,
-      {
-        coreURL:
-          new URL(
-            FFMPEG_CORE_URL,
-            document.baseURI
-          ).href,
-
-        wasmURL:
-          new URL(
-            FFMPEG_WASM_URL,
-            document.baseURI
-          ).href
-      }
-    );
-
-    this.loaded=true;
-
-    return first;
-  }
-
-
-  async writeFile(
-    path,
-    data
-  ){
-
-    const bytes=
-      data instanceof Uint8Array
-        ? data
-        : new Uint8Array(data);
-
-    return this.send(
-      FFMessageType.WRITE_FILE,
-      {
-        path,
-        data:bytes
-      },
-      [bytes.buffer]
-    );
-
-  }
-
-
-  async readFile(
-    path
-  ){
-
-    return this.send(
-      FFMessageType.READ_FILE,
-      {
-        path,
-        encoding:"binary"
-      }
-    );
-
-  }
-
-
-  async deleteFile(
-    path
-  ){
-
-    return this.send(
-      FFMessageType.DELETE_FILE,
-      {
-        path
-      }
-    );
-
-  }
-
-
-  async exec(
-    args,
-    timeout=-1
-  ){
-
-    return this.send(
-      FFMessageType.EXEC,
-      {
-        args,
-        timeout
-      }
-    );
-
-  }
-
-
-  terminate(){
-
-    if(this.worker){
-
-      this.worker.terminate();
-
-      this.worker=null;
-
-    }
-
-    this.loaded=false;
-
-  }
-
-}
-
-
-/* =========================================================
-   CREATE LOCAL ENGINE
-========================================================= */
-
-function createLocalFFmpeg(){
-
-  if(ffmpeg){
-    return ffmpeg;
-  }
-
-  ffmpeg=
-    new LocalFFmpeg();
-
-  ffmpeg.on(
-    "progress",
-    ({progress})=>{
-
-      if(
-        !Number.isFinite(progress)
-      ){
-        return;
-      }
-
-      ffmpegProgressSeen=true;
-
-      const percent=
-        Math.max(
-          20,
-          Math.min(
-            96,
-            20+
-            progress*76
-          )
-        );
-
-      setProgress(
-        percent
-      );
-
-      setStatus(
-        "جاري استخراج الصوت... "+
-        Math.round(percent)+
-        "%",
-        "warning"
-      );
-
-    }
-  );
-
-
-  ffmpeg.on(
-    "log",
-    ({message})=>{
-
-      lastFFmpegLog=
-        String(
-          message||""
-        );
-
-      console.log(
-        "[WFESC FFMPEG]",
-        lastFFmpegLog
-      );
-
-    }
-  );
-
-
-  return ffmpeg;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-const pages=
-  document.querySelectorAll(".page");
-
-const navButtons=
-  document.querySelectorAll(".nav button");
-
-const audioPlayer=
-  $("audioPlayer");
-
-
-function showPage(pageId){
-
-  pages.forEach(
-    page=>{
-      page.classList.toggle(
-        "active",
-        page.id===pageId
-      );
-    }
-  );
-
-  navButtons.forEach(
-    button=>{
-      button.classList.toggle(
-        "active",
-        button.dataset.page===
-        pageId
-      );
-    }
-  );
-
-  if(pageId==="filesPage"){
-    renderFiles();
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-navButtons.forEach(
-  button=>{
-    button.addEventListener(
-      "click",
-      ()=>{
-        showPage(
-          button.dataset.page
-        );
-      }
-    );
-  }
-);
-
-
-/* =========================================================
-   SETTINGS
-========================================================= */
-
-function getSetting(
-  key,
-  fallback
+if(
+  document.readyState === "loading"
 ){
 
-  const value=
-    localStorage.getItem(key);
-
-  return value===null
-    ? fallback
-    : value;
-}
-
-
-function setTheme(theme){
-
-  document.body.classList.toggle(
-    "light",
-    theme==="light"
+  document.addEventListener(
+    "DOMContentLoaded",
+    createBoot,
+    { once:true }
   );
 
-  $("themeSelect").value=
-    theme;
+}else{
 
-  $("themeButton").textContent=
-    theme==="light"
-      ? "☀"
-      : "☾";
-
-  localStorage.setItem(
-    "wfesc-theme",
-    theme
-  );
+  createBoot();
 
 }
-
-
-setTheme(
-  getSetting(
-    "wfesc-theme",
-    "dark"
-  )
-);
-
-
-$("themeButton")
-.addEventListener(
-  "click",
-  ()=>{
-    setTheme(
-      document.body
-        .classList
-        .contains("light")
-        ? "dark"
-        : "light"
-    );
-  }
-);
-
-
-$("themeSelect")
-.addEventListener(
-  "change",
-  e=>{
-    setTheme(
-      e.target.value
-    );
-  }
-);
-
-
-/* =========================================================
-   ENHANCED ANIMATION
-========================================================= */
-
-const enhancedToggle=
-  $("enhancedToggle");
-
-enhancedToggle.checked=
-  getSetting(
-    "WFESC_ENHANCED_ANIMATION",
-    "0"
-  )==="1";
-
-document.body.classList.toggle(
-  "wfesc-enhanced",
-  enhancedToggle.checked
-);
-
-enhancedToggle.addEventListener(
-  "change",
-  ()=>{
-
-    const enabled=
-      enhancedToggle.checked;
-
-    document.body.classList.toggle(
-      "wfesc-enhanced",
-      enabled
-    );
-
-    localStorage.setItem(
-      "WFESC_ENHANCED_ANIMATION",
-      enabled
-        ? "1"
-        : "0"
-    );
-
-  }
-);
-
-
-/* =========================================================
-   AUTO OPEN
-========================================================= */
-
-$("autoOpenToggle").checked=
-  getSetting(
-    "wfesc-auto-open",
-    "1"
-  )==="1";
-
-autoOpen=
-  $("autoOpenToggle").checked;
-
-$("autoOpenToggle")
-.addEventListener(
-  "change",
-  ()=>{
-    autoOpen=
-      $("autoOpenToggle").checked;
-  }
-);
-
-
-/* =========================================================
-   DEFAULTS
-========================================================= */
-
-$("defaultFormat").value=
-  getSetting(
-    "wfesc-default-format",
-    "mp3"
-  );
-
-$("defaultBitrate").value=
-  getSetting(
-    "wfesc-default-bitrate",
-    "192000"
-  );
-
-$("saveSettings")
-.addEventListener(
-  "click",
-  ()=>{
-
-    localStorage.setItem(
-      "wfesc-default-format",
-      $("defaultFormat").value
-    );
-
-    localStorage.setItem(
-      "wfesc-default-bitrate",
-      $("defaultBitrate").value
-    );
-
-    localStorage.setItem(
-      "wfesc-auto-open",
-      $("autoOpenToggle").checked
-        ? "1"
-        : "0"
-    );
-
-    autoOpen=
-      $("autoOpenToggle").checked;
-
-    $("settingsStatus").className=
-      "status success";
-
-    $("settingsStatus").textContent=
-      "تم حفظ الإعدادات ✓";
-
-  }
-);
-
-
-/* =========================================================
-   VIDEO
-========================================================= */
-
-$("chooseVideoButton")
-.addEventListener(
-  "click",
-  ()=>{
-    $("videoInput").value="";
-    $("videoInput").click();
-  }
-);
-
-
-$("videoInput")
-.addEventListener(
-  "change",
-  ()=>{
-
-    const file=
-      $("videoInput").files[0];
-
-    if(!file) return;
-
-    selectedVideo=file;
-
-    const clean=
-      safeName(
-        file.name.replace(
-          /\.[^.]+$/,
-          ""
-        )
-      );
-
-    $("selectedVideoName")
-      .textContent=
-      file.name+
-      " • "+
-      formatBytes(file.size);
-
-    $("fileNameInput")
-      .value=
-      clean;
-
-    $("formatSelect")
-      .value=
-      getSetting(
-        "wfesc-default-format",
-        "mp3"
-      );
-
-    $("bitrateSelect")
-      .value=
-      getSetting(
-        "wfesc-default-bitrate",
-        "192000"
-      );
-
-    $("extractionCard")
-      .classList
-      .remove("hidden");
-
-    $("progressBox")
-      .classList
-      .remove("hidden");
-
-    setProgress(0);
-
-    setStatus(
-      "الفيديو جاهز للاستخراج"
-    );
-
-    updateFormatNotice();
-
-  }
-);
-
-
-/* =========================================================
-   COVER
-========================================================= */
-
-$("coverInput")
-.addEventListener(
-  "change",
-  async()=>{
-
-    const file=
-      $("coverInput").files[0]||
-      null;
-
-    selectedCover=file;
-    selectedCoverData="";
-
-    const preview=
-      $("coverPreview");
-
-    if(!file){
-
-      preview.classList.remove("show");
-      preview.removeAttribute("src");
-
-      return;
-
-    }
-
-    try{
-
-      selectedCoverData=
-        await imageFileToDataURL(file);
-
-      preview.src=
-        selectedCoverData;
-
-      preview.classList.add("show");
-
-    }catch(error){
-
-      preview.classList.remove("show");
-
-      setStatus(
-        "تعذر قراءة صورة الغلاف.",
-        "error"
-      );
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   FORMAT
-========================================================= */
-
-$("formatSelect")
-.addEventListener(
-  "change",
-  updateFormatNotice
-);
-
-
-function updateFormatNotice(){
-
-  const format=
-    $("formatSelect").value;
-
-  const bitrate=
-    $("bitrateSelect");
-
-  if(format==="wav"){
-
-    bitrate.disabled=true;
-
-    $("formatNotice").textContent=
-      "WAV سيتم إنشاؤه كـ PCM WAV حقيقي.";
-
-  }else{
-
-    bitrate.disabled=false;
-
-    if(format==="m4a"){
-
-      $("formatNotice").textContent=
-        "M4A سيتم إنشاؤه بواسطة FFmpeg الحقيقي.";
-
-    }else if(format==="aac"){
-
-      $("formatNotice").textContent=
-        "AAC سيتم إنشاؤه بواسطة FFmpeg الحقيقي.";
-
-    }else{
-
-      $("formatNotice").textContent=
-        "MP3 سيتم إنشاؤه بواسطة FFmpeg الحقيقي.";
-
-    }
-  }
-}
-
 
 /* =========================================================
    HELPERS
@@ -2748,16 +1589,10 @@ function updateFormatNotice(){
 
 function safeName(name){
 
-  return(
-    String(name||"")
-      .replace(
-        /[\\/:*?"<>|]/g,
-        "_"
-      )
-      .replace(
-        /\s+/g,
-        " "
-      )
+  return (
+    String(name || "")
+      .replace(/[\\/:*?"<>|]/g, "_")
+      .replace(/\s+/g, " ")
       .trim()
     ||
     "WFESC Audio"
@@ -2765,256 +1600,227 @@ function safeName(name){
 
 }
 
-
 function formatBytes(bytes){
 
-  if(
-    !Number.isFinite(bytes)||
-    bytes<1024
-  ){
+  bytes = Number(bytes) || 0;
 
-    return(
-      Math.max(
-        0,
-        Math.round(bytes||0)
-      )+
-      " B"
-    );
-
+  if(bytes < 1024){
+    return Math.round(bytes) + " B";
   }
 
-  if(bytes<1024*1024){
-
-    return(
-      bytes/1024
-    ).toFixed(1)+
-    " KB";
-
+  if(bytes < 1024 * 1024){
+    return (bytes / 1024).toFixed(1) + " KB";
   }
 
-  if(bytes<1024*1024*1024){
-
-    return(
-      bytes/1024/1024
-    ).toFixed(2)+
-    " MB";
-
+  if(bytes < 1024 * 1024 * 1024){
+    return (bytes / 1024 / 1024).toFixed(2) + " MB";
   }
 
-  return(
-    bytes/
-    1024/
-    1024/
+  return (
+    bytes /
+    1024 /
+    1024 /
     1024
-  ).toFixed(2)+" GB";
-
+  ).toFixed(2) + " GB";
 }
-
 
 function formatTime(seconds){
 
   if(
-    !Number.isFinite(seconds)||
-    seconds<0
+    !Number.isFinite(seconds) ||
+    seconds < 0
   ){
     return "0:00";
   }
 
-  seconds=Math.floor(seconds);
+  seconds = Math.floor(seconds);
 
-  return(
-    Math.floor(seconds/60)+
-    ":"+
-    String(
-      seconds%60
-    ).padStart(2,"0")
+  return (
+    Math.floor(seconds / 60) +
+    ":" +
+    String(seconds % 60).padStart(2, "0")
   );
-
 }
-
 
 function getExtension(file){
 
-  const match=
-    file.name.match(
-      /\.([^.]+)$/
-    );
+  const match =
+    file.name.match(/\.([^.]+)$/);
 
   return match
     ? match[1]
-      .toLowerCase()
-      .replace(
-        /[^a-z0-9]/g,
-        ""
-      )
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "")
     : "mp4";
-
 }
 
+function getSetting(key, fallback){
 
-function defaultCover(){
+  const value =
+    localStorage.getItem(key);
 
-  const svg=`
-<svg xmlns="http://www.w3.org/2000/svg"
-width="600"
-height="600">
-
-<defs>
-
-<radialGradient id="g"
-cx="50%"
-cy="35%">
-
-<stop offset="0"
-stop-color="#17384a"/>
-
-<stop offset="1"
-stop-color="#05070b"/>
-
-</radialGradient>
-
-</defs>
-
-<rect
-width="600"
-height="600"
-fill="url(#g)"/>
-
-<circle
-cx="300"
-cy="280"
-r="165"
-fill="none"
-stroke="#6de7ff"
-stroke-opacity=".55"
-stroke-width="3"/>
-
-<circle
-cx="300"
-cy="280"
-r="120"
-fill="#081522"
-stroke="#8b7cff"
-stroke-opacity=".5"
-stroke-width="2"/>
-
-<text
-x="300"
-y="295"
-text-anchor="middle"
-fill="#eef4ff"
-font-size="56"
-font-family="Arial"
-font-weight="900">
-WFESC
-</text>
-
-<text
-x="300"
-y="500"
-text-anchor="middle"
-fill="#6de7ff"
-font-size="28"
-font-family="Arial">
-AUDIO
-</text>
-
-</svg>`;
-
-  return(
-    "data:image/svg+xml;charset=utf-8,"+
-    encodeURIComponent(svg)
-  );
-
+  return value === null
+    ? fallback
+    : value;
 }
-
 
 function setProgress(percent){
 
-  const p=
+  percent =
     Math.max(
       0,
       Math.min(
         100,
-        Math.round(percent)
+        Math.round(
+          Number(percent) || 0
+        )
       )
     );
 
   $("progressBar")
-    .style.width=
-    p+"%";
+    .style.width =
+    percent + "%";
 
   $("progressText")
-    .textContent=
-    p+"%";
-
+    .textContent =
+    percent + "%";
 }
 
+function setStatus(text, kind = ""){
 
-function setStatus(
-  text,
-  kind=""
-){
-
-  const element=
+  const node =
     $("statusText");
 
-  element.className=
-    "status"+
+  node.className =
+    "status" +
     (
       kind
-        ? " "+kind
+        ? " " + kind
         : ""
     );
 
-  element.textContent=
+  node.textContent =
     text;
-
 }
 
+/* =========================================================
+   COVER
+========================================================= */
+
+function defaultCover(){
+
+  const svg = `
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="600"
+       height="600">
+
+    <defs>
+      <radialGradient
+        id="g"
+        cx="50%"
+        cy="35%"
+      >
+        <stop
+          offset="0"
+          stop-color="#17384a"
+        />
+        <stop
+          offset="1"
+          stop-color="#05070b"
+        />
+      </radialGradient>
+    </defs>
+
+    <rect
+      width="600"
+      height="600"
+      fill="url(#g)"
+    />
+
+    <circle
+      cx="300"
+      cy="280"
+      r="165"
+      fill="none"
+      stroke="#6de7ff"
+      stroke-opacity=".55"
+      stroke-width="3"
+    />
+
+    <circle
+      cx="300"
+      cy="280"
+      r="120"
+      fill="#081522"
+      stroke="#8b7cff"
+      stroke-opacity=".5"
+      stroke-width="2"
+    />
+
+    <text
+      x="300"
+      y="295"
+      text-anchor="middle"
+      fill="#eef4ff"
+      font-size="56"
+      font-family="Arial"
+      font-weight="900"
+    >
+      WFESC
+    </text>
+
+    <text
+      x="300"
+      y="500"
+      text-anchor="middle"
+      fill="#6de7ff"
+      font-size="28"
+      font-family="Arial"
+    >
+      AUDIO
+    </text>
+
+  </svg>
+  `;
+
+  return (
+    "data:image/svg+xml;charset=utf-8," +
+    encodeURIComponent(svg)
+  );
+}
 
 function imageFileToDataURL(file){
 
   return new Promise(
-    (resolve,reject)=>{
+    (resolve, reject) => {
 
       if(!file){
-
         resolve("");
-
         return;
-
       }
 
-      const reader=
+      const reader =
         new FileReader();
 
-      reader.onload=
-        ()=>{
-          resolve(
-            String(
-              reader.result
-            )
-          );
-        };
+      reader.onload = () => {
+        resolve(
+          String(reader.result)
+        );
+      };
 
-      reader.onerror=
-        ()=>{
-          reject(
-            reader.error||
-            new Error(
-              "تعذر قراءة الصورة"
-            )
-          );
-        };
+      reader.onerror = () => {
+        reject(
+          reader.error ||
+          new Error(
+            "تعذر قراءة الصورة"
+          )
+        );
+      };
 
       reader.readAsDataURL(file);
-
     }
   );
-
 }
-
 
 async function coverToJpegBlob(file){
 
@@ -3022,78 +1828,74 @@ async function coverToJpegBlob(file){
     return null;
   }
 
-  const url=
+  const url =
     URL.createObjectURL(file);
+
+  currentObjectURLs.add(url);
 
   try{
 
-    const img=
+    const img =
       new Image();
 
     await new Promise(
-      (resolve,reject)=>{
+      (resolve, reject) => {
 
-        img.onload=resolve;
+        img.onload = resolve;
 
-        img.onerror=
-          ()=>{
-            reject(
-              new Error(
-                "صورة الغلاف غير صالحة"
-              )
-            );
-          };
+        img.onerror = () => {
+          reject(
+            new Error(
+              "صورة الغلاف غير صالحة"
+            )
+          );
+        };
 
-        img.src=url;
-
+        img.src = url;
       }
     );
 
-    const max=1200;
+    const max = 1200;
 
-    const originalWidth=
-      img.naturalWidth||
-      img.width||
+    const width0 =
+      img.naturalWidth ||
+      img.width ||
       1;
 
-    const originalHeight=
-      img.naturalHeight||
-      img.height||
+    const height0 =
+      img.naturalHeight ||
+      img.height ||
       1;
 
-    const scale=
+    const scale =
       Math.min(
         1,
-        max/
+        max /
         Math.max(
-          originalWidth,
-          originalHeight
+          width0,
+          height0
         )
       );
 
-    const width=
+    const width =
       Math.max(
         1,
-        Math.round(
-          originalWidth*scale
-        )
+        Math.round(width0 * scale)
       );
 
-    const height=
+    const height =
       Math.max(
         1,
-        Math.round(
-          originalHeight*scale
-        )
+        Math.round(height0 * scale)
       );
 
-    const canvas=
+    const canvas =
       document.createElement("canvas");
 
-    canvas.width=width;
-    canvas.height=height;
+    canvas.width = width;
+    canvas.height = height;
 
-    const ctx=
+    const ctx =
       canvas.getContext("2d");
 
     ctx.drawImage(
@@ -3105,22 +1907,24 @@ async function coverToJpegBlob(file){
     );
 
     return await new Promise(
-      (resolve,reject)=>{
+      (resolve, reject) => {
 
         canvas.toBlob(
-          blob=>{
+          blob => {
+
             if(blob){
               resolve(blob);
-            }else{
-              reject(
-                new Error(
-                  "تعذر تحويل الغلاف"
-                )
-              );
+              return;
             }
+
+            reject(
+              new Error(
+                "تعذر إنشاء صورة الغلاف"
+              )
+            );
           },
           "image/jpeg",
-          .9
+          0.9
         );
 
       }
@@ -3129,118 +1933,714 @@ async function coverToJpegBlob(file){
   }finally{
 
     URL.revokeObjectURL(url);
+    currentObjectURLs.delete(url);
+
+  }
+}
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function setTheme(theme){
+
+  document.body.classList.toggle(
+    "light",
+    theme === "light"
+  );
+
+  $("themeSelect").value =
+    theme;
+
+  $("themeButton").textContent =
+    theme === "light"
+      ? "☀"
+      : "☾";
+
+  localStorage.setItem(
+    "wfesc-theme",
+    theme
+  );
+}
+
+setTheme(
+  getSetting(
+    "wfesc-theme",
+    "dark"
+  )
+);
+
+$("themeButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      setTheme(
+        document.body
+          .classList
+          .contains("light")
+          ? "dark"
+          : "light"
+      );
+    }
+  );
+
+$("themeSelect")
+  .addEventListener(
+    "change",
+    event => {
+      setTheme(
+        event.target.value
+      );
+    }
+  );
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+$("defaultFormat").value =
+  getSetting(
+    "wfesc-default-format",
+    "mp3"
+  );
+
+$("defaultBitrate").value =
+  getSetting(
+    "wfesc-default-bitrate",
+    "192000"
+  );
+
+$("enhancedToggle").checked =
+  getSetting(
+    "WFESC_ENHANCED_ANIMATION",
+    "0"
+  ) === "1";
+
+$("autoOpenToggle").checked =
+  getSetting(
+    "wfesc-auto-open",
+    "1"
+  ) === "1";
+
+autoOpen =
+  $("autoOpenToggle").checked;
+
+function applyEnhanced(){
+
+  document.body.classList.toggle(
+    "wfesc-enhanced",
+    $("enhancedToggle").checked
+  );
+}
+
+applyEnhanced();
+
+$("enhancedToggle")
+  .addEventListener(
+    "change",
+    () => {
+
+      applyEnhanced();
+
+      localStorage.setItem(
+        "WFESC_ENHANCED_ANIMATION",
+        $("enhancedToggle").checked
+          ? "1"
+          : "0"
+      );
+    }
+  );
+
+$("autoOpenToggle")
+  .addEventListener(
+    "change",
+    () => {
+
+      autoOpen =
+        $("autoOpenToggle").checked;
+
+    }
+  );
+
+$("saveSettings")
+  .addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        "wfesc-default-format",
+        $("defaultFormat").value
+      );
+
+      localStorage.setItem(
+        "wfesc-default-bitrate",
+        $("defaultBitrate").value
+      );
+
+      localStorage.setItem(
+        "wfesc-auto-open",
+        $("autoOpenToggle").checked
+          ? "1"
+          : "0"
+      );
+
+      autoOpen =
+        $("autoOpenToggle").checked;
+
+      $("settingsStatus").className =
+        "status success";
+
+      $("settingsStatus").textContent =
+        "تم حفظ الإعدادات ✓";
+    }
+  );
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+const pages =
+  document.querySelectorAll(".page");
+
+const navButtons =
+  document.querySelectorAll(".nav button");
+
+function showPage(pageId){
+
+  pages.forEach(page => {
+
+    page.classList.toggle(
+      "active",
+      page.id === pageId
+    );
+
+  });
+
+  navButtons.forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.page === pageId
+    );
+
+  });
+
+  if(pageId === "filesPage"){
+    renderFiles();
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+navButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      showPage(
+        button.dataset.page
+      );
+
+    }
+  );
+
+});
+
+/* =========================================================
+   LOCAL FILE VALIDATION
+========================================================= */
+
+async function checkLocalFFmpegFiles(){
+
+  const targets = [
+
+    {
+      name:"worker.js",
+      url:new URL(
+        "./ffmpeg/worker.js",
+        document.baseURI
+      ).href
+    },
+
+    {
+      name:"const.js",
+      url:new URL(
+        "./ffmpeg/const.js",
+        document.baseURI
+      ).href
+    },
+
+    {
+      name:"errors.js",
+      url:new URL(
+        "./ffmpeg/errors.js",
+        document.baseURI
+      ).href
+    },
+
+    {
+      name:"ffmpeg-core.js",
+      url:FFMPEG_CORE_JS
+    },
+
+    {
+      name:"ffmpeg-core.wasm",
+      url:FFMPEG_CORE_WASM
+    }
+
+  ];
+
+  for(const file of targets){
+
+    const response =
+      await fetch(
+        file.url,
+        {
+          cache:"no-store"
+        }
+      );
+
+    if(!response.ok){
+
+      throw new Error(
+        "الملف " +
+        file.name +
+        " غير موجود. HTTP " +
+        response.status
+      );
+    }
+
+    if(
+      file.name ===
+      "ffmpeg-core.js"
+    ){
+
+      const text =
+        await response
+          .clone()
+          .text();
+
+      if(
+        text.trim().length <
+        1000
+      ){
+
+        throw new Error(
+          "ffmpeg-core.js فارغ أو غير كامل."
+        );
+      }
+
+      if(
+        !text.includes(
+          "export default"
+        )
+      ){
+
+        throw new Error(
+          "ffmpeg-core.js ليس نسخة ESM الصحيحة. استخدم dist/esm/ffmpeg-core.js."
+        );
+      }
+
+    }
+
+    if(
+      file.name ===
+      "ffmpeg-core.wasm"
+    ){
+
+      const sizeHeader =
+        Number(
+          response.headers.get(
+            "content-length"
+          )
+        );
+
+      if(
+        Number.isFinite(sizeHeader) &&
+        sizeHeader < 1000000
+      ){
+
+        throw new Error(
+          "ffmpeg-core.wasm يبدو فارغًا أو غير مكتمل."
+        );
+      }
+
+    }
 
   }
 
+  return true;
 }
 
-
 /* =========================================================
-   LOAD LOCAL FFMPEG
+   OFFICIAL FFMPEG WRAPPER
 ========================================================= */
 
-async function loadFFmpeg(){
+async function createFFmpegInstance(){
 
   if(
-    location.protocol==="file:"
+    location.protocol ===
+    "file:"
   ){
 
     throw new Error(
-      "افتح الموقع من GitHub Pages عبر HTTPS. Worker لا يعمل من file://."
+      "افتح الموقع من GitHub Pages عبر HTTPS. FFmpeg Worker لا يعمل من file://."
     );
-
   }
 
-  if(ffmpegLoaded){
-    return true;
+  if(ffmpeg){
+    return ffmpeg;
+  }
+
+  setStatus(
+    "جارِ تحميل واجهة FFmpeg الرسمية...",
+    "warning"
+  );
+
+  const module =
+    await import(
+      FFMPEG_WRAPPER_URL
+    );
+
+  if(
+    !module ||
+    typeof module.FFmpeg !==
+      "function"
+  ){
+
+    throw new Error(
+      "تعذر تحميل @ffmpeg/ffmpeg 0.12.15."
+    );
+  }
+
+  ffmpeg =
+    new module.FFmpeg();
+
+  ffmpeg.on(
+    "log",
+    ({ message }) => {
+
+      lastFFmpegLog =
+        String(
+          message || ""
+        );
+
+      console.log(
+        "[WFESC FFmpeg]",
+        lastFFmpegLog
+      );
+
+    }
+  );
+
+  ffmpeg.on(
+    "progress",
+    ({ progress }) => {
+
+      if(
+        !Number.isFinite(progress)
+      ){
+        return;
+      }
+
+      const percent =
+        Math.max(
+          18,
+          Math.min(
+            96,
+            18 + progress * 78
+          )
+        );
+
+      setProgress(
+        percent
+      );
+
+      setStatus(
+        "جاري استخراج الصوت... " +
+        Math.round(percent) +
+        "%",
+        "warning"
+      );
+
+    }
+  );
+
+  return ffmpeg;
+}
+
+async function loadFFmpeg(){
+
+  if(ffmpeg?.loaded){
+    return ffmpeg;
   }
 
   if(ffmpegLoading){
     return ffmpegLoading;
   }
 
-  ffmpegLoading=
-    (async()=>{
+  ffmpegLoading =
+    (async() => {
 
-      try{
+      await checkLocalFFmpegFiles();
 
-        setStatus(
-          "جارِ فحص محرك WFESC المحلي...",
-          "warning"
-        );
+      const engine =
+        await createFFmpegInstance();
 
-        await checkLocalFFmpegFiles();
+      setStatus(
+        "جارِ تشغيل FFmpeg Core...",
+        "warning"
+      );
 
-        setStatus(
-          "جارِ تشغيل محرك FFmpeg المحلي...",
-          "warning"
-        );
+      await engine.load({
 
-        const engine=
-          createLocalFFmpeg();
+        coreURL:
+          FFMPEG_CORE_JS,
 
-        await engine.load();
+        wasmURL:
+          FFMPEG_CORE_WASM,
 
-        ffmpegLoaded=true;
+        classWorkerURL:
+          FFMPEG_CLASS_WORKER
 
-        setStatus(
-          "محرك FFmpeg المحلي جاهز ✓",
-          "success"
-        );
+      });
 
-        console.log(
-          "[WFESC] LOCAL FFmpeg loaded"
-        );
+      setStatus(
+        "محرك FFmpeg جاهز ✓",
+        "success"
+      );
 
-        return true;
-
-      }catch(error){
-
-        console.error(
-          "[WFESC] LOCAL FFmpeg load failed",
-          error
-        );
-
-        throw new Error(
-          error?.message||
-          String(error)
-        );
-
-      }finally{
-
-        ffmpegLoading=null;
-
-      }
+      return engine;
 
     })();
 
-  return ffmpegLoading;
+  try{
+
+    return await ffmpegLoading;
+
+  }finally{
+
+    ffmpegLoading = null;
+
+  }
 }
 
+/* =========================================================
+   VIDEO
+========================================================= */
+
+$("chooseVideoButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      $("videoInput").value = "";
+      $("videoInput").click();
+
+    }
+  );
+
+$("videoInput")
+  .addEventListener(
+    "change",
+    () => {
+
+      const file =
+        $("videoInput").files[0];
+
+      if(!file){
+        return;
+      }
+
+      selectedVideo =
+        file;
+
+      const name =
+        safeName(
+          file.name.replace(
+            /\.[^.]+$/,
+            ""
+          )
+        );
+
+      $("selectedVideoName")
+        .textContent =
+        file.name +
+        " • " +
+        formatBytes(file.size);
+
+      $("fileNameInput")
+        .value =
+        name;
+
+      $("formatSelect")
+        .value =
+        getSetting(
+          "wfesc-default-format",
+          "mp3"
+        );
+
+      $("bitrateSelect")
+        .value =
+        getSetting(
+          "wfesc-default-bitrate",
+          "192000"
+        );
+
+      $("extractionCard")
+        .classList
+        .remove("hidden");
+
+      $("progressBox")
+        .classList
+        .remove("hidden");
+
+      setProgress(0);
+
+      setStatus(
+        "الفيديو جاهز للاستخراج"
+      );
+
+      updateFormatNotice();
+
+    }
+  );
 
 /* =========================================================
-   FFMPEG COMMAND
+   COVER
+========================================================= */
+
+$("coverInput")
+  .addEventListener(
+    "change",
+    async() => {
+
+      const file =
+        $("coverInput").files[0] ||
+        null;
+
+      selectedCover =
+        file;
+
+      selectedCoverData =
+        "";
+
+      if(!file){
+
+        $("coverPreview")
+          .classList
+          .remove("show");
+
+        $("coverPreview")
+          .removeAttribute("src");
+
+        return;
+      }
+
+      try{
+
+        selectedCoverData =
+          await imageFileToDataURL(
+            file
+          );
+
+        $("coverPreview").src =
+          selectedCoverData;
+
+        $("coverPreview")
+          .classList
+          .add("show");
+
+      }catch(error){
+
+        console.error(error);
+
+        $("coverPreview")
+          .classList
+          .remove("show");
+
+        setStatus(
+          "تعذر قراءة صورة الغلاف.",
+          "error"
+        );
+      }
+
+    }
+  );
+
+/* =========================================================
+   FORMAT
+========================================================= */
+
+$("formatSelect")
+  .addEventListener(
+    "change",
+    updateFormatNotice
+  );
+
+function updateFormatNotice(){
+
+  const format =
+    $("formatSelect").value;
+
+  const bitrate =
+    $("bitrateSelect");
+
+  if(format === "wav"){
+
+    bitrate.disabled = true;
+
+    $("formatNotice").textContent =
+      "سيتم إنشاء WAV حقيقي بصيغة PCM.";
+
+  }else{
+
+    bitrate.disabled = false;
+
+    if(format === "m4a"){
+
+      $("formatNotice").textContent =
+        "سيتم إنشاء M4A/AAC حقيقي بواسطة FFmpeg.";
+
+    }else if(format === "aac"){
+
+      $("formatNotice").textContent =
+        "سيتم إنشاء AAC حقيقي بواسطة FFmpeg.";
+
+    }else{
+
+      $("formatNotice").textContent =
+        "سيتم إنشاء MP3 حقيقي بواسطة FFmpeg.";
+    }
+  }
+}
+
+/* =========================================================
+   COMMAND BUILDER
 ========================================================= */
 
 function buildCommand({
-
   input,
   output,
   format,
   bitrate,
   cover
-
 }){
 
-  const rate=
+  const rate =
     String(
-      Number(bitrate)||
+      Number(bitrate) ||
       192000
     );
 
-  if(format==="mp3"){
+  if(format === "mp3"){
 
-    const args=[
+    const args = [
       "-nostdin",
       "-y",
       "-i",
@@ -3251,46 +2651,55 @@ function buildCommand({
 
       args.push(
         "-i",
-        cover
+        cover,
+        "-map",
+        "0:a:0",
+        "-map",
+        "1:0",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        rate,
+        "-ar",
+        "44100",
+        "-c:v",
+        "mjpeg",
+        "-disposition:v:0",
+        "attached_pic",
+        "-id3v2_version",
+        "3",
+        "-metadata:s:v",
+        "title=Album cover",
+        "-metadata:s:v",
+        "comment=Cover (front)"
+      );
+
+    }else{
+
+      args.push(
+        "-map",
+        "0:a:0",
+        "-vn",
+        "-c:a",
+        "libmp3lame",
+        "-b:a",
+        rate,
+        "-ar",
+        "44100"
       );
 
     }
 
     args.push(
-      "-map",
-      "0:a:0",
-      "-vn",
-      "-c:a",
-      "libmp3lame",
-      "-b:a",
-      rate,
-      "-ar",
-      "44100"
+      output
     );
-
-    if(cover){
-
-      args.push(
-        "-map",
-        "1:0",
-        "-c:v",
-        "mjpeg",
-        "-disposition:v:0",
-        "attached_pic"
-      );
-
-    }
-
-    args.push(output);
 
     return args;
-
   }
 
+  if(format === "m4a"){
 
-  if(format==="m4a"){
-
-    const args=[
+    const args = [
       "-nostdin",
       "-y",
       "-i",
@@ -3301,32 +2710,35 @@ function buildCommand({
 
       args.push(
         "-i",
-        cover
-      );
-
-    }
-
-    args.push(
-      "-map",
-      "0:a:0",
-      "-vn",
-      "-c:a",
-      "aac",
-      "-b:a",
-      rate,
-      "-ar",
-      "44100"
-    );
-
-    if(cover){
-
-      args.push(
+        cover,
+        "-map",
+        "0:a:0",
         "-map",
         "1:0",
+        "-c:a",
+        "aac",
+        "-b:a",
+        rate,
+        "-ar",
+        "44100",
         "-c:v",
         "mjpeg",
         "-disposition:v:0",
         "attached_pic"
+      );
+
+    }else{
+
+      args.push(
+        "-map",
+        "0:a:0",
+        "-vn",
+        "-c:a",
+        "aac",
+        "-b:a",
+        rate,
+        "-ar",
+        "44100"
       );
 
     }
@@ -3338,13 +2750,11 @@ function buildCommand({
     );
 
     return args;
-
   }
 
+  if(format === "aac"){
 
-  if(format==="aac"){
-
-    return[
+    return [
       "-nostdin",
       "-y",
       "-i",
@@ -3362,13 +2772,11 @@ function buildCommand({
       "adts",
       output
     ];
-
   }
 
+  if(format === "wav"){
 
-  if(format==="wav"){
-
-    return[
+    return [
       "-nostdin",
       "-y",
       "-i",
@@ -3384,123 +2792,114 @@ function buildCommand({
       "wav",
       output
     ];
-
   }
 
   throw new Error(
-    "صيغة الصوت غير مدعومة."
+    "الصيغة غير مدعومة."
   );
-
 }
 
-
 /* =========================================================
-   ERROR TRANSLATION
+   ERROR TRANSLATOR
 ========================================================= */
 
 function translateFFmpegError(error){
 
-  const raw=
+  const raw =
     String(
-      error?.message||
-      error||
-      lastFFmpegLog||
+      error?.message ||
+      error ||
       "حدث خطأ غير معروف"
     );
 
-  const combined=
+  const all =
     (
-      raw+
-      "\n"+
+      raw +
+      "\n" +
       lastFFmpegLog
     ).toLowerCase();
 
   if(
-    combined.includes(
+    all.includes(
       "ffmpeg-core.js"
     )
   ){
 
-    return(
-      "فشل تشغيل المحرك: ملف ffmpeg-core.js غير موجود أو فارغ."
+    return (
+      "ملف ffmpeg-core.js غير صحيح أو غير مكتمل."
     );
-
   }
 
   if(
-    combined.includes(
+    all.includes(
       "ffmpeg-core.wasm"
     )
   ){
 
-    return(
-      "فشل تشغيل المحرك: ملف ffmpeg-core.wasm غير موجود أو غير صالح."
+    return (
+      "ملف ffmpeg-core.wasm غير موجود أو غير صالح."
     );
-
   }
 
   if(
-    combined.includes("worker")
+    all.includes(
+      "worker"
+    )
   ){
 
-    return(
-      "فشل تشغيل Worker الخاص بـ FFmpeg. تحقق من worker.js وملفاته المحلية."
+    return (
+      "تعذر تشغيل Worker الخاص بـ FFmpeg. تحقق من worker.js."
     );
-
   }
 
   if(
-    combined.includes(
+    all.includes(
       "does not contain any stream"
-    )||
-    combined.includes(
+    ) ||
+    all.includes(
       "matches no streams"
-    )||
-    combined.includes(
+    ) ||
+    all.includes(
       "stream map"
     )
   ){
 
-    return(
-      "فشل الاستخراج: الفيديو لا يحتوي على مسار صوت قابل للقراءة."
+    return (
+      "الفيديو لا يحتوي على مسار صوت قابل للاستخراج."
     );
-
   }
 
   if(
-    combined.includes(
+    all.includes(
       "unknown encoder"
-    )||
+    ) ||
     (
-      combined.includes("encoder")&&
-      combined.includes("not found")
+      all.includes("encoder") &&
+      all.includes("not found")
     )
   ){
 
-    return(
-      "فشل الاستخراج: برنامج الترميز المطلوب غير موجود داخل FFmpeg Core."
+    return (
+      "برنامج الترميز المطلوب غير موجود داخل FFmpeg Core."
     );
-
   }
 
   if(
-    combined.includes("out of memory")||
-    combined.includes("memory")
+    all.includes(
+      "out of memory"
+    )
   ){
 
-    return(
-      "فشل الاستخراج: الذاكرة غير كافية لمعالجة هذا الفيديو."
+    return (
+      "الذاكرة غير كافية لمعالجة الفيديو."
     );
-
   }
 
-  return(
-    "فشل الاستخراج: "+
-    raw.slice(0,800)
+  return (
+    "فشل الاستخراج:\n" +
+    raw.slice(0,1000)
   );
-
 }
-
 
 /* =========================================================
    EXTRACTION
@@ -3515,13 +2914,12 @@ async function extractAudio(){
     );
 
     return;
-
   }
 
-  const button=
+  const button =
     $("extractButton");
 
-  button.disabled=true;
+  button.disabled = true;
 
   $("progressBox")
     .classList
@@ -3530,92 +2928,70 @@ async function extractAudio(){
   setProgress(1);
 
   setStatus(
-    "جاري تجهيز التحويل...",
+    "جاري تجهيز المحرك...",
     "warning"
   );
 
-  lastFFmpegLog="";
-  ffmpegProgressSeen=false;
+  lastFFmpegLog = "";
 
-  const format=
+  const format =
     $("formatSelect").value;
 
-  const bitrate=
+  const bitrate =
     $("bitrateSelect").value;
 
-  const cleanName=
+  const name =
     safeName(
       $("fileNameInput").value
     );
 
-  const stamp=Date.now();
+  const stamp =
+    Date.now();
 
-  let inputName="";
-  let outputName="";
-  let coverName=null;
+  const inputName =
+    "wfesc_input_" +
+    stamp +
+    "." +
+    getExtension(
+      selectedVideo
+    );
+
+  const outputName =
+    "wfesc_output_" +
+    stamp +
+    "." +
+    format;
+
+  let coverName =
+    null;
 
   try{
 
-    if(
-      location.protocol==="file:"
-    ){
-
-      throw new Error(
-        "افتح الموقع من GitHub Pages حتى يعمل FFmpeg Worker."
-      );
-
-    }
-
-    setProgress(3);
-
-    setStatus(
-      "جاري تشغيل محرك FFmpeg المحلي...",
-      "warning"
-    );
-
-    await loadFFmpeg();
+    const engine =
+      await loadFFmpeg();
 
     setProgress(8);
 
-    const inputExtension=
-      getExtension(
-        selectedVideo
-      );
-
-    inputName=
-      "wfesc_input_"+
-      stamp+
-      "."+
-      inputExtension;
-
-    outputName=
-      "wfesc_output_"+
-      stamp+
-      "."+
-      format;
-
     setStatus(
-      "جارِ تجهيز الفيديو...",
+      "جاري تجهيز الفيديو...",
       "warning"
     );
 
-    const inputData=
+    const inputData =
       new Uint8Array(
         await selectedVideo.arrayBuffer()
       );
 
     if(
-      !inputData||
       !inputData.length
     ){
 
       throw new Error(
-        "تعذر قراءة ملف الفيديو."
+        "ملف الفيديو فارغ."
       );
-
     }
 
-    await ffmpeg.writeFile(
+    await engine.writeFile(
       inputName,
       inputData
     );
@@ -3623,10 +2999,10 @@ async function extractAudio(){
     setProgress(15);
 
     if(
-      selectedCover&&
+      selectedCover &&
       (
-        format==="mp3"||
-        format==="m4a"
+        format === "mp3" ||
+        format === "m4a"
       )
     ){
 
@@ -3635,47 +3011,43 @@ async function extractAudio(){
         "warning"
       );
 
-      const jpeg=
+      const jpg =
         await coverToJpegBlob(
           selectedCover
         );
 
-      if(jpeg){
+      if(jpg){
 
-        coverName=
-          "wfesc_cover_"+
-          stamp+
+        coverName =
+          "wfesc_cover_" +
+          stamp +
           ".jpg";
 
-        const coverData=
+        const coverData =
           new Uint8Array(
-            await jpeg.arrayBuffer()
+            await jpg.arrayBuffer()
           );
 
-        await ffmpeg.writeFile(
+        await engine.writeFile(
           coverName,
           coverData
         );
-
       }
-
     }
 
     setProgress(20);
 
-    const command=
+    const command =
       buildCommand({
-
         input:inputName,
         output:outputName,
-        format:format,
-        bitrate:bitrate,
+        format,
+        bitrate,
         cover:coverName
-
       });
 
     console.log(
-      "[WFESC] FFmpeg command:",
+      "[WFESC] EXEC",
       command
     );
 
@@ -3684,29 +3056,27 @@ async function extractAudio(){
       "warning"
     );
 
-    const exitCode=
-      await ffmpeg.exec(
+    const code =
+      await engine.exec(
         command
       );
 
     console.log(
-      "[WFESC] FFmpeg exit:",
-      exitCode
+      "[WFESC] exitCode:",
+      code
     );
 
-    if(exitCode!==0){
+    if(code !== 0){
 
       throw new Error(
-        "FFmpeg توقف برمز خروج: "+
-        exitCode+
+        "FFmpeg exit code: " +
+        code +
         (
           lastFFmpegLog
-            ? "\n"+
-              lastFFmpegLog
+            ? "\n" + lastFFmpegLog
             : ""
         )
       );
-
     }
 
     setProgress(96);
@@ -3716,81 +3086,78 @@ async function extractAudio(){
       "warning"
     );
 
-    const outputData=
-      await ffmpeg.readFile(
+    const outputData =
+      await engine.readFile(
         outputName
       );
 
     if(
-      !outputData||
+      !outputData ||
       !outputData.length
     ){
 
       throw new Error(
-        "FFmpeg أنهى العملية لكن الملف الناتج فارغ."
+        "FFmpeg أنشأ ملفًا فارغًا."
       );
-
     }
 
-    const mimeTypes={
+    const mime = {
 
       mp3:"audio/mpeg",
       m4a:"audio/mp4",
       aac:"audio/aac",
       wav:"audio/wav"
 
-    };
+    }[format] ||
+    "application/octet-stream";
 
-    const blob=
+    const blob =
       new Blob(
         [outputData],
-        {
-          type:
-            mimeTypes[format]||
-            "application/octet-stream"
-        }
+        { type:mime }
       );
 
-    if(blob.size<100){
+    if(blob.size < 100){
 
       throw new Error(
-        "تم إنشاء ملف صغير جدًا وغير صالح."
+        "الملف الناتج صغير جدًا وغير صالح."
       );
-
     }
 
-    resultBlob=blob;
+    resultBlob =
+      blob;
 
-    resultExtension=format;
-
-    resultFileName=
-      cleanName+
-      "."+
+    resultFileName =
+      name +
+      "." +
       format;
 
-    const coverData=
-      selectedCoverData||
+    const cover =
+      selectedCoverData ||
       defaultCover();
-
-    setStatus(
-      "جارِ حفظ الملف...",
-      "warning"
-    );
 
     await saveFile({
 
       name:resultFileName,
-      blob:blob,
-      cover:coverData,
-      format:format,
+      blob,
+      cover,
+      format,
       bitrate:
-        format==="wav"
+        format === "wav"
           ? null
           : bitrate,
       size:blob.size,
       created:Date.now()
 
     });
+
+    preparePlayer(
+      resultFileName,
+      blob,
+      cover,
+      format,
+      bitrate
+    );
 
     setProgress(100);
 
@@ -3799,48 +3166,18 @@ async function extractAudio(){
       "success"
     );
 
-    preparePlayer(
-      resultFileName,
-      blob,
-      coverData,
-      format,
-      bitrate
-    );
-
     if(autoOpen){
 
       setTimeout(
-        ()=>{
+        () => {
           showPage(
             "playerPage"
           );
         },
-        350
+        300
       );
 
     }
-
-    try{
-      await ffmpeg.deleteFile(
-        inputName
-      );
-    }catch(_){}
-
-    if(coverName){
-
-      try{
-        await ffmpeg.deleteFile(
-          coverName
-        );
-      }catch(_){}
-
-    }
-
-    try{
-      await ffmpeg.deleteFile(
-        outputName
-      );
-    }catch(_){}
 
   }catch(error){
 
@@ -3851,7 +3188,7 @@ async function extractAudio(){
 
     setProgress(0);
 
-    const message=
+    const message =
       translateFFmpegError(
         error
       );
@@ -3862,71 +3199,60 @@ async function extractAudio(){
     );
 
     alert(
-      message+
-      (
-        lastFFmpegLog
-          ? "\n\nآخر سجل FFmpeg:\n"+
-            lastFFmpegLog.slice(
-              0,
-              1000
-            )
-          : ""
-      )
+      message
     );
-
-    if(ffmpeg){
-
-      try{
-
-        if(inputName){
-          await ffmpeg.deleteFile(
-            inputName
-          );
-        }
-
-      }catch(_){}
-
-      if(coverName){
-
-        try{
-          await ffmpeg.deleteFile(
-            coverName
-          );
-        }catch(_){}
-
-      }
-
-      if(outputName){
-
-        try{
-          await ffmpeg.deleteFile(
-            outputName
-          );
-        }catch(_){}
-
-      }
-
-    }
 
   }finally{
 
-    button.disabled=false;
+    if(ffmpeg?.loaded){
 
+      for(
+        const path
+        of [
+          inputName,
+          coverName,
+          outputName
+        ]
+      ){
+
+        if(!path){
+          continue;
+        }
+
+        try{
+          await ffmpeg.deleteFile(
+            path
+          );
+        }catch(_){}
+
+      }
+    }
+
+    button.disabled = false;
   }
-
 }
 
-
 $("extractButton")
-.addEventListener(
-  "click",
-  extractAudio
-);
-
+  .addEventListener(
+    "click",
+    extractAudio
+  );
 
 /* =========================================================
    PLAYER
 ========================================================= */
+
+function releaseResultURL(){
+
+  if(resultURL){
+
+    URL.revokeObjectURL(
+      resultURL
+    );
+
+    resultURL = "";
+  }
+}
 
 function preparePlayer(
   name,
@@ -3936,373 +3262,341 @@ function preparePlayer(
   bitrate
 ){
 
-  if(resultURL){
+  releaseResultURL();
 
-    URL.revokeObjectURL(
-      resultURL
-    );
+  resultBlob =
+    blob;
 
-  }
-
-  resultBlob=blob;
-
-  resultURL=
+  resultURL =
     URL.createObjectURL(
       blob
     );
 
-  resultFileName=name;
+  resultFileName =
+    name;
 
-  resultExtension=
-    format||
-    name
-      .split(".")
-      .pop();
+  const player =
+    $("audioPlayer");
 
-  audioPlayer.src=resultURL;
-  audioPlayer.load();
+  player.src =
+    resultURL;
+
+  player.load();
 
   $("resultName")
-    .textContent=name;
+    .textContent =
+    name;
 
-  $("resultCover")
-    .src=
-    cover||
+  $("resultCover").src =
+    cover ||
     defaultCover();
 
-  const meta=[
-
-    (
-      format||
-      resultExtension
-    ).toUpperCase(),
-
+  const meta = [
+    format.toUpperCase(),
     formatBytes(blob.size)
-
   ];
 
   if(
-    bitrate&&
-    format!=="wav"
+    bitrate &&
+    format !== "wav"
   ){
 
     meta.push(
       Math.round(
-        Number(bitrate)/1000
-      )+
+        Number(bitrate) / 1000
+      ) +
       " kbps"
     );
 
   }
 
   $("playerMeta")
-    .textContent=
+    .textContent =
     meta.join(" • ");
 
-  $("playerStatus").className=
-    "status";
-
-  $("playerStatus").textContent=
-    "الملف جاهز للتشغيل.";
-
-  $("seekBar").value=0;
-
   $("currentTime")
-    .textContent="0:00";
+    .textContent =
+    "0:00";
 
   $("duration")
-    .textContent="0:00";
+    .textContent =
+    "0:00";
 
+  $("seekBar").value = 0;
+
+  $("playerStatus").className =
+    "status";
+
+  $("playerStatus").textContent =
+    "الملف جاهز للتشغيل.";
 }
 
-
-/* =========================================================
-   PLAYER CONTROLS
-========================================================= */
+const audioPlayer =
+  $("audioPlayer");
 
 $("playButton")
-.addEventListener(
-  "click",
-  async()=>{
+  .addEventListener(
+    "click",
+    async() => {
 
-    try{
+      try{
 
-      if(audioPlayer.paused){
+        if(
+          audioPlayer.paused
+        ){
 
-        await audioPlayer.play();
+          await audioPlayer.play();
 
-      }else{
+        }else{
 
-        audioPlayer.pause();
+          audioPlayer.pause();
 
+        }
+
+      }catch(error){
+
+        console.error(error);
+
+        $("playerStatus").className =
+          "status error";
+
+        $("playerStatus").textContent =
+          "تعذر تشغيل الملف داخل المتصفح.";
       }
-
-    }catch(error){
-
-      console.error(error);
-
-      $("playerStatus")
-        .className=
-        "status error";
-
-      $("playerStatus")
-        .textContent=
-        "تعذر تشغيل الملف داخل المتصفح.";
-
     }
-
-  }
-);
-
+  );
 
 audioPlayer.addEventListener(
   "play",
-  ()=>{
+  () => {
+
     $("playButton")
-      .textContent="Ⅱ";
+      .textContent =
+      "Ⅱ";
+
   }
 );
-
 
 audioPlayer.addEventListener(
   "pause",
-  ()=>{
+  () => {
+
     $("playButton")
-      .textContent="▶";
+      .textContent =
+      "▶";
+
   }
 );
-
 
 audioPlayer.addEventListener(
   "ended",
-  ()=>{
+  () => {
+
     $("playButton")
-      .textContent="▶";
-  }
-);
-
-
-audioPlayer.addEventListener(
-  "error",
-  ()=>{
-
-    $("playerStatus")
-      .className=
-      "status error";
-
-    $("playerStatus")
-      .textContent=
-      "تعذر تشغيل هذا الملف داخل المتصفح.";
+      .textContent =
+      "▶";
 
   }
 );
-
 
 audioPlayer.addEventListener(
   "loadedmetadata",
-  ()=>{
+  () => {
+
     $("duration")
-      .textContent=
+      .textContent =
       formatTime(
         audioPlayer.duration
       );
+
   }
 );
 
-
 audioPlayer.addEventListener(
   "timeupdate",
-  ()=>{
+  () => {
 
     $("currentTime")
-      .textContent=
+      .textContent =
       formatTime(
         audioPlayer.currentTime
       );
 
-    $("seekBar").value=
+    $("seekBar").value =
       audioPlayer.duration
         ? (
-            audioPlayer.currentTime/
+            audioPlayer.currentTime /
             audioPlayer.duration
-          )*100
+          ) * 100
         : 0;
 
   }
 );
 
-
 $("seekBar")
-.addEventListener(
-  "input",
-  ()=>{
+  .addEventListener(
+    "input",
+    () => {
 
-    if(audioPlayer.duration){
+      if(
+        audioPlayer.duration
+      ){
 
-      audioPlayer.currentTime=
-        (
-          Number(
-            $("seekBar").value
-          )/
-          100
-        )*
-        audioPlayer.duration;
+        audioPlayer.currentTime =
+          (
+            Number(
+              $("seekBar").value
+            ) / 100
+          ) *
+          audioPlayer.duration;
+
+      }
 
     }
-
-  }
-);
-
-
-$("backButton")
-.addEventListener(
-  "click",
-  ()=>{
-    audioPlayer.currentTime=
-      Math.max(
-        0,
-        audioPlayer.currentTime-10
-      );
-  }
-);
-
-
-$("forwardButton")
-.addEventListener(
-  "click",
-  ()=>{
-
-    audioPlayer.currentTime=
-      Math.min(
-        audioPlayer.duration||0,
-        audioPlayer.currentTime+10
-      );
-
-  }
-);
-
-
-/* =========================================================
-   DOWNLOAD
-========================================================= */
-
-$("downloadButton")
-.addEventListener(
-  "click",
-  downloadCurrent
-);
-
-
-function downloadCurrent(){
-
-  if(!resultBlob){
-    return;
-  }
-
-  downloadBlob(
-    resultBlob,
-    resultFileName
   );
 
-}
+$("backButton")
+  .addEventListener(
+    "click",
+    () => {
 
+      audioPlayer.currentTime =
+        Math.max(
+          0,
+          audioPlayer.currentTime - 10
+        );
+
+    }
+  );
+
+$("forwardButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      audioPlayer.currentTime =
+        Math.min(
+          audioPlayer.duration || 0,
+          audioPlayer.currentTime + 10
+        );
+
+    }
+  );
+
+/* =========================================================
+   DOWNLOAD / SHARE
+========================================================= */
 
 function downloadBlob(
   blob,
   name
 ){
 
-  const url=
-    URL.createObjectURL(blob);
+  const url =
+    URL.createObjectURL(
+      blob
+    );
 
-  const a=
-    document.createElement("a");
+  const a =
+    document.createElement(
+      "a"
+    );
 
-  a.href=url;
-  a.download=name;
+  a.href = url;
+  a.download = name;
 
-  document.body.appendChild(a);
+  document.body.appendChild(
+    a
+  );
 
   a.click();
 
   a.remove();
 
   setTimeout(
-    ()=>{
-      URL.revokeObjectURL(url);
+    () => {
+      URL.revokeObjectURL(
+        url
+      );
     },
     1500
   );
-
 }
 
+$("downloadButton")
+  .addEventListener(
+    "click",
+    () => {
 
-/* =========================================================
-   SHARE
-========================================================= */
+      if(!resultBlob){
+        return;
+      }
 
-$("shareButton")
-.addEventListener(
-  "click",
-  async()=>{
-
-    if(!resultBlob){
-      return;
-    }
-
-    const file=
-      new File(
-        [resultBlob],
-        resultFileName,
-        {
-          type:resultBlob.type
-        }
+      downloadBlob(
+        resultBlob,
+        resultFileName
       );
 
-    if(
-      navigator.share&&
-      navigator.canShare&&
-      navigator.canShare({
-        files:[file]
-      })
-    ){
+    }
+  );
+
+$("shareButton")
+  .addEventListener(
+    "click",
+    async() => {
+
+      if(!resultBlob){
+        return;
+      }
+
+      const file =
+        new File(
+          [resultBlob],
+          resultFileName,
+          {
+            type:
+              resultBlob.type
+          }
+        );
 
       try{
 
-        await navigator.share({
+        if(
+          navigator.share &&
+          navigator.canShare &&
+          navigator.canShare({
+            files:[file]
+          })
+        ){
 
-          title:"WFESC Audio",
+          await navigator.share({
+            title:"WFESC Audio",
+            text:resultFileName,
+            files:[file]
+          });
 
-          text:resultFileName,
-
-          files:[file]
-
-        });
-
-        return;
+          return;
+        }
 
       }catch(error){
 
         if(
-          error.name==="AbortError"
+          error.name ===
+          "AbortError"
         ){
           return;
         }
 
       }
 
+      alert(
+        "المتصفح لا يدعم مشاركة الملف مباشرة. استخدم زر حفظ."
+      );
     }
-
-    alert(
-      "المتصفح لا يدعم مشاركة الملفات مباشرة. استخدم زر حفظ."
-    );
-
-  }
-);
-
+  );
 
 /* =========================================================
-   INDEXED DB
+   INDEXEDDB
 ========================================================= */
 
 function openDatabase(){
@@ -4311,24 +3605,27 @@ function openDatabase(){
     return databasePromise;
   }
 
-  databasePromise=
+  databasePromise =
     new Promise(
-      (resolve,reject)=>{
+      (resolve,reject) => {
 
-        const request=
+        const request =
           indexedDB.open(
             DB_NAME,
             DB_VERSION
           );
 
-        request.onupgradeneeded=
-          ()=>{
-            const db=
+        request.onupgradeneeded =
+          () => {
+
+            const db =
               request.result;
 
             if(
               !db.objectStoreNames
-                .contains(STORE_NAME)
+                .contains(
+                  STORE_NAME
+                )
             ){
 
               db.createObjectStore(
@@ -4340,40 +3637,41 @@ function openDatabase(){
               );
 
             }
-
           };
 
-        request.onsuccess=
-          ()=>{
+        request.onsuccess =
+          () => {
+
             resolve(
               request.result
             );
+
           };
 
-        request.onerror=
-          ()=>{
+        request.onerror =
+          () => {
+
             reject(
               request.error
             );
+
           };
 
       }
     );
 
   return databasePromise;
-
 }
-
 
 async function saveFile(file){
 
-  const db=
+  const db =
     await openDatabase();
 
   return new Promise(
-    (resolve,reject)=>{
+    (resolve,reject) => {
 
-      const tx=
+      const tx =
         db.transaction(
           STORE_NAME,
           "readwrite"
@@ -4383,71 +3681,73 @@ async function saveFile(file){
         STORE_NAME
       ).add(file);
 
-      tx.oncomplete=resolve;
+      tx.oncomplete =
+        resolve;
 
-      tx.onerror=
-        ()=>{
-          reject(tx.error);
+      tx.onerror =
+        () => {
+          reject(
+            tx.error
+          );
         };
-
     }
   );
-
 }
-
 
 async function getFiles(){
 
-  const db=
+  const db =
     await openDatabase();
 
   return new Promise(
-    (resolve,reject)=>{
+    (resolve,reject) => {
 
-      const tx=
+      const tx =
         db.transaction(
           STORE_NAME,
           "readonly"
         );
 
-      const request=
+      const req =
         tx.objectStore(
           STORE_NAME
         ).getAll();
 
-      request.onsuccess=
-        ()=>{
+      req.onsuccess =
+        () => {
+
           resolve(
-            request.result.sort(
-              (a,b)=>
-                (b.created||0)-
-                (a.created||0)
+            req.result.sort(
+              (a,b) =>
+                (b.created || 0) -
+                (a.created || 0)
             )
           );
+
         };
 
-      request.onerror=
-        ()=>{
+      req.onerror =
+        () => {
+
           reject(
-            request.error
+            req.error
           );
+
         };
 
     }
   );
-
 }
-
 
 async function deleteFileFromDB(id){
 
-  const db=
+  const db =
     await openDatabase();
 
   return new Promise(
-    (resolve,reject)=>{
+    (resolve,reject) => {
 
-      const tx=
+      const tx =
         db.transaction(
           STORE_NAME,
           "readwrite"
@@ -4457,18 +3757,19 @@ async function deleteFileFromDB(id){
         STORE_NAME
       ).delete(id);
 
-      tx.oncomplete=resolve;
+      tx.oncomplete =
+        resolve;
 
-      tx.onerror=
-        ()=>{
-          reject(tx.error);
+      tx.onerror =
+        () => {
+          reject(
+            tx.error
+          );
         };
 
     }
   );
-
 }
-
 
 /* =========================================================
    FILES PAGE
@@ -4476,258 +3777,304 @@ async function deleteFileFromDB(id){
 
 async function renderFiles(){
 
-  const list=
+  const list =
     $("filesList");
 
-  list.innerHTML="";
+  list.innerHTML = "";
 
-  let files=[];
+  let files = [];
 
   try{
 
-    files=
+    files =
       await getFiles();
 
   }catch(error){
 
     console.error(error);
 
-    list.innerHTML=
+    list.innerHTML =
       `
       <div class="empty">
-      تعذر قراءة الملفات.
+        تعذر قراءة الملفات.
       </div>
       `;
 
     return;
-
   }
 
   if(!files.length){
 
-    list.innerHTML=
+    list.innerHTML =
       `
       <div class="empty">
-      لا توجد ملفات مستخرجة بعد.
+        لا توجد ملفات مستخرجة بعد.
       </div>
       `;
 
     return;
-
   }
 
-  files.forEach(
-    file=>{
+  for(
+    const file
+    of files
+  ){
 
-      const item=
-        document.createElement("div");
-
-      item.className="fileItem";
-
-      const image=
-        document.createElement("img");
-
-      image.className="fileThumb";
-
-      image.src=
-        file.cover||
-        defaultCover();
-
-      const info=
-        document.createElement("div");
-
-      info.className="fileInfo";
-
-      const title=
-        document.createElement("div");
-
-      title.className="fileName";
-
-      title.textContent=file.name;
-
-      const meta=
-        document.createElement("div");
-
-      meta.className="fileMeta";
-
-      const parts=[
-
-        (
-          file.format||
-          "audio"
-        ).toUpperCase(),
-
-        formatBytes(
-          file.size||
-          file.blob?.size||
-          0
-        )
-
-      ];
-
-      if(
-        file.bitrate&&
-        file.format!=="wav"
-      ){
-
-        parts.push(
-          Math.round(
-            Number(file.bitrate)/1000
-          )+
-          " kbps"
-        );
-
-      }
-
-      meta.textContent=
-        parts.join(" • ");
-
-      info.append(
-        title,
-        meta
+    const item =
+      document.createElement(
+        "div"
       );
 
-      const actions=
-        document.createElement("div");
+    item.className =
+      "fileItem";
 
-      actions.className=
-        "fileActions";
-
-      const play=
-        document.createElement("button");
-
-      play.className="fileOpen";
-      play.textContent="تشغيل";
-
-      play.addEventListener(
-        "click",
-        ()=>{
-
-          preparePlayer(
-            file.name,
-            file.blob,
-            file.cover||
-              defaultCover(),
-            file.format,
-            file.bitrate
-          );
-
-          showPage("playerPage");
-
-        }
+    const image =
+      document.createElement(
+        "img"
       );
 
-      const save=
-        document.createElement("button");
+    image.className =
+      "fileThumb";
 
-      save.className="fileOpen";
-      save.textContent="حفظ";
+    image.src =
+      file.cover ||
+      defaultCover();
 
-      save.addEventListener(
-        "click",
-        ()=>{
-          downloadBlob(
-            file.blob,
-            file.name
-          );
-        }
+    const info =
+      document.createElement(
+        "div"
       );
 
-      const del=
-        document.createElement("button");
+    info.className =
+      "fileInfo";
 
-      del.className=
-        "fileOpen fileDelete";
-
-      del.textContent="حذف";
-
-      del.addEventListener(
-        "click",
-        async()=>{
-
-          await deleteFileFromDB(
-            file.id
-          );
-
-          renderFiles();
-
-        }
+    const title =
+      document.createElement(
+        "div"
       );
 
-      actions.append(
-        play,
-        save,
-        del
+    title.className =
+      "fileName";
+
+    title.textContent =
+      file.name;
+
+    const meta =
+      document.createElement(
+        "div"
       );
 
-      item.append(
-        image,
-        info,
-        actions
-      );
+    meta.className =
+      "fileMeta";
 
-      list.appendChild(item);
+    const metadata = [
+      (
+        file.format ||
+        "audio"
+      ).toUpperCase(),
 
-    }
-  );
-
-}
-
-
-$("clearFilesButton")
-.addEventListener(
-  "click",
-  async()=>{
+      formatBytes(
+        file.size ||
+        0
+      )
+    ];
 
     if(
-      !confirm(
-        "حذف جميع الملفات المحفوظة؟"
-      )
+      file.bitrate &&
+      file.format !== "wav"
     ){
-      return;
+
+      metadata.push(
+        Math.round(
+          Number(
+            file.bitrate
+          ) / 1000
+        ) +
+        " kbps"
+      );
+
     }
 
-    const db=
-      await openDatabase();
+    meta.textContent =
+      metadata.join(" • ");
 
-    await new Promise(
-      (resolve,reject)=>{
+    info.append(
+      title,
+      meta
+    );
 
-        const tx=
-          db.transaction(
-            STORE_NAME,
-            "readwrite"
-          );
+    const actions =
+      document.createElement(
+        "div"
+      );
 
-        tx.objectStore(
-          STORE_NAME
-        ).clear();
+    actions.className =
+      "fileActions";
 
-        tx.oncomplete=resolve;
+    const play =
+      document.createElement(
+        "button"
+      );
 
-        tx.onerror=
-          ()=>{
-            reject(tx.error);
-          };
+    play.className =
+      "fileOpen";
+
+    play.textContent =
+      "تشغيل";
+
+    play.addEventListener(
+      "click",
+      () => {
+
+        preparePlayer(
+          file.name,
+          file.blob,
+          file.cover ||
+            defaultCover(),
+          file.format,
+          file.bitrate
+        );
+
+        showPage(
+          "playerPage"
+        );
 
       }
     );
 
-    renderFiles();
+    const save =
+      document.createElement(
+        "button"
+      );
+
+    save.className =
+      "fileOpen";
+
+    save.textContent =
+      "حفظ";
+
+    save.addEventListener(
+      "click",
+      () => {
+
+        downloadBlob(
+          file.blob,
+          file.name
+        );
+
+      }
+    );
+
+    const del =
+      document.createElement(
+        "button"
+      );
+
+    del.className =
+      "fileOpen fileDelete";
+
+    del.textContent =
+      "حذف";
+
+    del.addEventListener(
+      "click",
+      async() => {
+
+        await deleteFileFromDB(
+          file.id
+        );
+
+        renderFiles();
+
+      }
+    );
+
+    actions.append(
+      play,
+      save,
+      del
+    );
+
+    item.append(
+      image,
+      info,
+      actions
+    );
+
+    list.appendChild(
+      item
+    );
 
   }
-);
+}
 
+$("clearFilesButton")
+  .addEventListener(
+    "click",
+    async() => {
+
+      if(
+        !confirm(
+          "حذف جميع الملفات المحفوظة؟"
+        )
+      ){
+        return;
+      }
+
+      const db =
+        await openDatabase();
+
+      await new Promise(
+        (resolve,reject) => {
+
+          const tx =
+            db.transaction(
+              STORE_NAME,
+              "readwrite"
+            );
+
+          tx.objectStore(
+            STORE_NAME
+          ).clear();
+
+          tx.oncomplete =
+            resolve;
+
+          tx.onerror =
+            () => {
+              reject(
+                tx.error
+              );
+            };
+
+        }
+      );
+
+      renderFiles();
+
+    }
+  );
 
 /* =========================================================
-   INITIAL UI
+   INIT
 ========================================================= */
 
 updateFormatNotice();
 
 console.log(
-  "[WFESC AUDIO] LOCAL OFFLINE FFmpeg MODE READY"
+  "[WFESC AUDIO] Official FFmpeg wrapper 0.12.15"
 );
 
-</script></body>
+console.log(
+  "[WFESC AUDIO] Core 0.12.10 local"
+);
+
+console.log(
+  "[WFESC AUDIO] Worker:",
+  FFMPEG_CLASS_WORKER
+);
+
+</script>
+
+</body>
 </html>
