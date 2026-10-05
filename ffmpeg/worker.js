@@ -9,7 +9,7 @@ import {
   ERROR_IMPORT_FAILURE,
 } from "./errors.js";
 
-let ffmpeg = null;
+let ffmpeg;
 
 const load = async ({
   coreURL: _coreURL,
@@ -20,29 +20,36 @@ const load = async ({
 
   try {
     if (!_coreURL) {
-      throw new Error("coreURL is required");
+      _coreURL = CORE_URL;
     }
 
-    // تحميل ffmpeg-core.js داخل Module Worker
-    const module = await import(_coreURL);
+    try {
+      importScripts(_coreURL);
+    } catch {
+      if (!_coreURL || _coreURL === CORE_URL) {
+        _coreURL = CORE_URL.replace("/umd/", "/esm/");
+      }
 
-    if (!module || !module.default) {
-      throw ERROR_IMPORT_FAILURE;
+      self.createFFmpegCore = (
+        await import(_coreURL)
+      ).default;
+
+      if (!self.createFFmpegCore) {
+        throw ERROR_IMPORT_FAILURE;
+      }
     }
-
-    const createFFmpegCore = module.default;
 
     const coreURL = _coreURL;
 
-    const wasmURL =
-      _wasmURL ||
-      coreURL.replace(/\.js$/i, ".wasm");
+    const wasmURL = _wasmURL
+      ? _wasmURL
+      : _coreURL.replace(/\.js$/g, ".wasm");
 
-    const workerURL =
-      _workerURL ||
-      coreURL.replace(/\.js$/i, ".worker.js");
+    const workerURL = _workerURL
+      ? _workerURL
+      : _coreURL.replace(/\.js$/g, ".worker.js");
 
-    ffmpeg = await createFFmpegCore({
+    ffmpeg = await self.createFFmpegCore({
       mainScriptUrlOrBlob:
         `${coreURL}#${btoa(
           JSON.stringify({
@@ -68,7 +75,6 @@ const load = async ({
 
     return first;
   } catch (error) {
-    console.error("[WFESC FFmpeg Worker]", error);
     throw error;
   }
 };
@@ -77,11 +83,8 @@ const exec = ({
   args,
   timeout = -1,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.setTimeout(timeout);
+
   ffmpeg.exec(...args);
 
   const ret = ffmpeg.ret;
@@ -95,11 +98,8 @@ const ffprobe = ({
   args,
   timeout = -1,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.setTimeout(timeout);
+
   ffmpeg.ffprobe(...args);
 
   const ret = ffmpeg.ret;
@@ -113,10 +113,6 @@ const writeFile = ({
   path,
   data,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.FS.writeFile(path, data);
 
   return true;
@@ -126,10 +122,6 @@ const readFile = ({
   path,
   encoding,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   return ffmpeg.FS.readFile(path, {
     encoding,
   });
@@ -138,10 +130,6 @@ const readFile = ({
 const deleteFile = ({
   path,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.FS.unlink(path);
 
   return true;
@@ -151,10 +139,6 @@ const rename = ({
   oldPath,
   newPath,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.FS.rename(oldPath, newPath);
 
   return true;
@@ -163,10 +147,6 @@ const rename = ({
 const createDir = ({
   path,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.FS.mkdir(path);
 
   return true;
@@ -175,29 +155,24 @@ const createDir = ({
 const listDir = ({
   path,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   const names = ffmpeg.FS.readdir(path);
+  const nodes = [];
 
-  return names.map((name) => {
+  for (const name of names) {
     const stat = ffmpeg.FS.stat(`${path}/${name}`);
 
-    return {
+    nodes.push({
       name,
       isDir: ffmpeg.FS.isDir(stat.mode),
-    };
-  });
+    });
+  }
+
+  return nodes;
 };
 
 const deleteDir = ({
   path,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.FS.rmdir(path);
 
   return true;
@@ -208,11 +183,9 @@ const mount = ({
   options,
   mountPoint,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
+  const str = fsType;
 
-  const fs = ffmpeg.FS.filesystems[fsType];
+  const fs = ffmpeg.FS.filesystems[str];
 
   if (!fs) {
     return false;
@@ -230,10 +203,6 @@ const mount = ({
 const unmount = ({
   mountPoint,
 }) => {
-  if (!ffmpeg) {
-    throw ERROR_NOT_LOADED;
-  }
-
   ffmpeg.FS.unmount(mountPoint);
 
   return true;
@@ -247,7 +216,6 @@ self.onmessage = async ({
   },
 }) => {
   const transferable = [];
-
   let data;
 
   try {
